@@ -7,16 +7,25 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatOptionModule} from '@angular/material/core';
 import {MatButtonModule} from '@angular/material/button';
-import { NewDiagnosticCenterComponent } from './pages/new-diagnostic-center/new-diagnostic-center.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { DiagnosticCenterComponent } from './pages/diagnostic-center/diagnostic-center.component';
+import { AddDiagnosticCenterComponent } from './pages/diagnostic-center/add-diagnostic-center/add-diagnostic-center.component';
+import { ViewDiagnosticCenterComponent } from './pages/diagnostic-center/view-diagnostic-center/view-diagnostic-center.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HomeComponent } from './pages/home/home.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NewDiagnosticCenterComponent,
     FooterComponent,
     NavbarComponent,
+    DiagnosticCenterComponent,
+    AddDiagnosticCenterComponent,
+    ViewDiagnosticCenterComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +33,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatOptionModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule,
+    NgbModule,
+    ReactiveFormsModule
 
   ],
   providers: [],

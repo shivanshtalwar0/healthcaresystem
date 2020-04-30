@@ -1,0 +1,53 @@
+<table class="mt-2 table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Center Name</th>
+    <th scope="col">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngIf="centers.length===0">
+    <td colspan="100%">
+      <p>No data</p>
+    </td>
+  </tr>
+  <tr *ngFor="let center of centers; index as i">
+    <td >
+      <span  *ngIf="!center.shouldUpdate">
+        {{ center.centerName }}
+      </span>
+      <div
+        [formGroup]="updateForm"
+        *ngIf="center.shouldUpdate">
+        <input
+          formControlName="centerName"
+          type="text"
+          class="form-control"
+          id="exampleInputEmail1"
+        >
+      </div>
+
+    </td>
+    <td>
+      <button
+        [disabled]="updateForm.invalid"
+        (click)="save(center)"
+        type="button" class="m-1 btn btn-success"
+        *ngIf="center.shouldUpdate"
+      >Save</button>
+      <button
+        *ngIf="!center.shouldUpdate"
+        (click)="updateCenter(center.centerId)"
+        type="button" class="m-1 btn btn-outline-info" data-toggle="modal" data-target="#exampleModal">
+        Update
+      </button>
+      <button
+        *ngIf="!center.shouldUpdate"
+        (click)="deleteCenter(center.centerId)"
+        type="button" class="m-1 btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+        Delete
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -1,16 +1,14 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {NewDiagnosticCenterComponent} from './pages/new-diagnostic-center/new-diagnostic-center.component';
+import {DiagnosticCenterComponent} from './pages/diagnostic-center/diagnostic-center.component';
+import {HomeComponent} from './pages/home/home.component';
 
 
 const routes: Routes = [
   {
-    path: 'diagnosticCenter',
-    children: [
-      {component: NewDiagnosticCenterComponent, path: 'new'}
-    ]
+    path: '',
+    component: HomeComponent
   },
-
 
 ];
 
