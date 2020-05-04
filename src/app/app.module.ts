@@ -15,7 +15,15 @@ import { ViewDiagnosticCenterComponent } from './pages/diagnostic-center/view-di
 import {MatDialogModule} from '@angular/material/dialog';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './pages/home/home.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { AppointmentComponent } from './pages/appointment/appointment.component';
+import { MakeAppointmentComponent } from './pages/appointment/make-appointment/make-appointment.component';
+import { ViewAppointmentComponent } from './pages/appointment/view-appointment/view-appointment.component';
+import { MaterialModule } from './material/material.module';
+// import { AppointmentmessageComponent } from './pages/appointmentmessage/appointmentmessage.component';
+import { AppointmentMessageComponent } from './pages/appointment/appointment-message/appointment-message.component';
+import { AppointmenthandlerService } from './services/appointmenthandler.service';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +34,11 @@ import {ReactiveFormsModule} from '@angular/forms';
     AddDiagnosticCenterComponent,
     ViewDiagnosticCenterComponent,
     HomeComponent,
+    AppointmentComponent,
+    MakeAppointmentComponent,
+    ViewAppointmentComponent,
+    // AppointmentmessageComponent,
+    AppointmentMessageComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,10 +49,12 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatButtonModule,
     MatDialogModule,
     NgbModule,
-    ReactiveFormsModule
+    MaterialModule,
+    ReactiveFormsModule,
+    FormsModule
 
   ],
-  providers: [],
+  providers: [AppointmenthandlerService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
