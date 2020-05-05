@@ -24,6 +24,11 @@ export class ViewDiagnosticCenterComponent implements OnInit {
 
   }
   updateCenter(centerId:number){
+    this.centers.forEach(value => {
+      if(value.centerId!=centerId){
+        value.shouldUpdate=false
+      }
+    })
     let centerToBeUpdated=this.centers.find(value => value.centerId==centerId)
     this.updateForm.setValue({centerName:centerToBeUpdated.centerName})
     centerToBeUpdated.shouldUpdate=true;
