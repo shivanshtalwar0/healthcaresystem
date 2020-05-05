@@ -20,7 +20,6 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { ShashankComponent } from './components/shashank/shashank.component';
 import {HttpClientModule} from '@angular/common/http';
 
 
@@ -33,7 +32,7 @@ import {HttpClientModule} from '@angular/common/http';
     AddDiagnosticCenterComponent,
     ViewDiagnosticCenterComponent,
     HomeComponent,
-    ShashankComponent,
+
   ],
   imports: [
     BrowserModule,
