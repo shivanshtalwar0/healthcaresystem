@@ -9,25 +9,4 @@
     </ngb-tab>
   </ngb-tabset>
 
-<div [formGroup]="myform">
-  <input required type="text" placeholder="name" formControlName="name">
-  <input required type="text" placeholder="age" formControlName="age">
-
-  <div formGroupName="address">
-    <input required type="text" placeholder="street" formControlName="street">
-    <input required type="text" placeholder="pincode" formControlName="pincode">
-
-  </div>
-
-  <button
-  [disabled]="myform.invalid"
-  >submit</button>
-
-</div>
-  <div>
-    {{myform.get('name').value}}
-    {{myform.get('age').value}}
-  </div>
-
-
 </div>
