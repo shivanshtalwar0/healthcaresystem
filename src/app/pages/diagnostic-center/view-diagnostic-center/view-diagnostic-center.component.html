@@ -2,6 +2,8 @@
   <thead>
   <tr>
     <th scope="col">Center Name</th>
+    <th scope="col">Contact No</th>
+    <th scope="col">Address</th>
     <th scope="col">Action</th>
   </tr>
   </thead>
@@ -23,7 +25,38 @@
           formControlName="centerName"
           type="text"
           class="form-control"
-          id="exampleInputEmail1"
+        >
+      </div>
+
+    </td>
+    <td >
+      <span  *ngIf="!center.shouldUpdate">
+        {{ center.contactNo }}
+      </span>
+      <div
+        [formGroup]="updateForm"
+        *ngIf="center.shouldUpdate">
+        <input
+          formControlName="contactNo"
+          type="text"
+          name="contactNo"
+          class="form-control"
+        >
+      </div>
+
+    </td>
+    <td >
+      <span  *ngIf="!center.shouldUpdate">
+        {{ center.address }}
+      </span>
+      <div
+        [formGroup]="updateForm"
+        *ngIf="center.shouldUpdate">
+        <input
+          formControlName="address"
+          name="address"
+          type="text"
+          class="form-control"
         >
       </div>
 

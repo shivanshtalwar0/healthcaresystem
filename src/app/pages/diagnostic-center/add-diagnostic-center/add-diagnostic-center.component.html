@@ -1,17 +1,18 @@
 <form [formGroup]="addCenterForm">
 
-  <div class="form-group">
-    <label for="exampleInputEmail1">Center Name</label>
+  <!--  <div class="form-group">-->
+  <mat-form-field *ngFor="let control of addCenterForm.controls|keyvalue" appearance="fill">
+    <mat-label>{{control.key}}</mat-label>
     <input
-      formControlName="centerName"
+      [formControlName]="control.key"
       type="text"
-      class="form-control"
-      id="exampleInputEmail1"
-    >
-    <small *ngIf="addCenterForm.invalid" class="form-text text-danger">
-      CenterName Required!</small>
-  </div>
-  <div class="justify-content-center d-flex">
+      matInput>
+    <mat-error *ngIf="control.value.invalid">{{
+      control.value.hasError('required') ? control.key + ' Required' : control.value.hasError('pattern') ? control.key + ' invalid' : ''
+      }}</mat-error>
+  </mat-form-field>
+  <!--  </div>-->
+  <div class="mt-2 justify-content-center d-flex">
     <button
 
       [disabled]="addCenterForm.invalid"
