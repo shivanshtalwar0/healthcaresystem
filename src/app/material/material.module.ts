@@ -6,12 +6,11 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
 // import {MatIconModule} from '@angular/material/icon';
 import {MatTabsModule} from '@angular/material/tabs';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
-const material=[MatDialogModule,MatButtonModule,MatFormFieldModule,MatDatepickerModule,MatTabsModule,
-  MatToolbarModule];
+const material=[MatDialogModule,MatButtonModule,MatFormFieldModule,MatDatepickerModule,MatTabsModule,MatIconModule];
 
 @NgModule({
   imports: [material],

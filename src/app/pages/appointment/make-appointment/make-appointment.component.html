@@ -1,6 +1,6 @@
 <div class="container" >
   <div  class="alert alert-success mt-2" role="alert">
-    Welcome sachin
+    Welcome!!!!
    </div>
     <table class="table table-light table-sm">
       <thead>
@@ -13,20 +13,20 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let center of diagnosticCenter">
-          <th scope="row">{{center.centerid}}</th>
-          <td>{{center.centername}}</td>
+        <tr *ngFor="let center of arrayDetails">
+          <th scope="row">{{center.centerId}}</th>
+          <td>{{center.centerName}}</td>
           <td>{{center.address}}</td>
-          <td>{{center.contact}}</td>
+          <td>{{center.contactInfo}}</td>
           <td><button mat-raised-button color="primary" (click)="onSelect(center)">Select</button></td>
         </tr>
       </tbody>
     </table>
 
     <h2>{{currentCenterName}}</h2>
-    <table class="table table-hover table-sm" *ngIf="tableStatus" >
+    <table class="table table-hover" *ngIf="tableStatus" >
       <thead>
-        <tr  class="table-primary">
+        <tr>
           <th scope="col">#</th>
           <th scope="col">TestName</th>
           <th></th>
@@ -36,8 +36,8 @@
         <tr *ngFor="let test of test">
           <th scope="row">{{test.testId}}</th>
 
-          <td>{{test.testname}}</td>
-          <!-- <td>{{center.contact}}</td> -->
+          <td>{{test.testName}}</td>
+         <!-- <td>{{center.contact}}</td> -->
           <td><button class="btn btn-success btn-sm" (click)="onTestSelect(test)">Select</button></td>
         </tr>
 
