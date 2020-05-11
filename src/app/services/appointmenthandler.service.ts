@@ -42,7 +42,9 @@ export class AppointmenthandlerService {
   getDate():string{
     return this.date;
   }
-
+  getAppointments():Observable<record[]>{
+    return this.http.get<record[]>(this.baseUrl);
+  }
 
   onCancel(patientid: number) {
     let PatientToBeDeleted = this.arrayDetails.find(((value, index) => {

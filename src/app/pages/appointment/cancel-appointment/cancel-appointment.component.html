@@ -1,0 +1,9 @@
+<div class="card text-white text-center bg-dark mb-3" >
+  <div class="card-header">Appointment Cancelation</div>
+  <div class="card-body">
+    <h4 class="card-title">Do you Want To Cancel your Appointment</h4>
+    <p class="card-text">Appointment With Patient Id :{{data.PatientId}}</p>
+    <button mat-dialog-close class="btn btn-outline-danger mr-4" (click)="onDelete(data.PatientId)">Yes</button>
+    <button mat-dialog-close class="btn btn-outline-info ml-4">No</button>
+  </div>
+</div>

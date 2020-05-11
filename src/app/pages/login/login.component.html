@@ -1,0 +1,19 @@
+<form *ngIf="!submitted">
+  <h2 mat-dialog-title>Welcome </h2>
+   <h2 mat-dialog-title>Please Login To Proceed!!!</h2>
+   <div class="form-group">
+     <input type="text" #name name="username" class="form-control" placeholder="Enter your name">
+   </div>
+   <div class="form-group">
+     <input type="password" #password name="password" class="form-control" placeholder="*******">
+   </div>
+   <!-- <mat-dialog-actions class="mt-0">
+     <button class="btn btn-primary"mat-dialog-close>close</button>
+   </mat-dialog-actions> -->
+   <mat-dialog-actions class="mt-0">
+     <button class="btn btn-primary" type="submit" (click)="onSubmit(name.value,password.value)" mat-dialog-close>Submit</button>
+     <small><a class="text-info m-4">New User?Register Here</a></small>
+   </mat-dialog-actions>
+
+
+ </form>

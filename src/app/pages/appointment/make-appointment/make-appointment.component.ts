@@ -20,7 +20,8 @@ export class MakeAppointmentComponent implements OnInit {
   status:boolean;
   btnStatus=false;
   tableStatus=false;
-
+  centerId:number;
+  testId:number;
   currentTestName="";
 
   name:string;
@@ -52,12 +53,14 @@ export class MakeAppointmentComponent implements OnInit {
 onSelect(center:any){
    this.tableStatus=true;
    this.currentCenterName=center.centerName;
+   this.centerId=center.centerId;
    this.test=center.testList;
+
 }
 onTestSelect(test:Test){
   this.currentTestName=test.testName;
     // this.serv.saveRecord(this.arrayDetails);
-
+    this.testId=test.testId;
     this.btnStatus=true;
 }
 openDialog1(){
@@ -69,7 +72,7 @@ dialogRef.afterClosed().subscribe(result => {
     console.log(result);
   }else{
     this.recordModel={date:this.serv.getDate(),centername:this.currentCenterName,testName:this.currentTestName,
-      patientid:Math.floor(Math.abs(Math.random() * 10000))};
+      patientid:Math.floor(Math.abs(Math.random() * 10000)),centerId:this.centerId,testId:this.testId};
       this.serv.add(this.recordModel).subscribe((data)=>{
         this.serv.arrayDetails.push(this.recordModel);
       })

@@ -3,4 +3,6 @@ export class record{
   centername:string;
   testName:string;
   patientid:number;
+  centerId:number;
+  testId:number;
 }
