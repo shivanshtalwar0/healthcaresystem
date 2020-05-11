@@ -2,19 +2,23 @@
   <thead class="thead-dark">
     <tr>
       <th scope="col">Patient_ID</th>
+      <th scope="col">Date</th>
+
       <th scope="col">Test_Name</th>
-      <th scope="col">Appointment_Date</th>
       <th scope="col">Test_Center_Name</th>
+      <th></th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let record of arrayDetails">
       <th scope="row">{{record.patientid}}</th>
-      <td>{{record.testName}}</td>
       <td>{{record.date}}</td>
-      <td>{{record.Centername}}</td>
-      <td><button mat-raised-button color="warn" (click)="onCancelId(record.patientid)">Cancel</button></td>
+
+      <td>{{record.testName}}</td>
+      <td>{{record.centername}}</td>
+      <td><button mat-raised-button class="btn btn-success btn-sm">Download</button></td>
+      <td><button mat-raised-button color="warn" (click)="onCancelRecord(record.patientid)">Cancel</button></td>
     </tr>
   </tbody>
 </table>

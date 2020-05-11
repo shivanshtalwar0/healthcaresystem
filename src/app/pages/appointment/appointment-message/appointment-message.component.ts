@@ -25,7 +25,7 @@ export class AppointmentMessageComponent implements OnInit {
     this.serv.setLogDATE(data);
     this.onNoClick();
     this.bValue=true;
-    this.serv.btnStaus=true;
+    this.serv.btnStaus=this.bValue;
     this.router.navigate(["../dashboard/viewappointment"],{relativeTo:this.active});
    }
   // selectedSlot="";

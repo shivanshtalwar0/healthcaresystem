@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 // import { AppointmentMessageComponent } from '../appointment-message/appointment-message.component';
-import { Test } from 'src/app/test.model';
+// import { Test } from 'src/app/test.model';
 import { MatDialog } from '@angular/material/dialog';
 import { AppointmenthandlerService } from 'src/app/services/appointmenthandler.service';
 import { record } from 'src/app/interfaces/record.model';
 import { AppointmentMessageComponent } from '../appointment-message/appointment-message.component';
+import { DiagnosticCenter } from 'src/app/interfaces/diagnosticenter.model';
+import { Test } from 'src/app/interfaces/test.model';
 
 @Component({
   selector: 'app-make-appointment',
@@ -18,39 +20,47 @@ export class MakeAppointmentComponent implements OnInit {
   status:boolean;
   btnStatus=false;
   tableStatus=false;
-  currentCenterName="";
+  centerId:number;
+  testId:number;
   currentTestName="";
-  arrayDetails:record[];
+
   name:string;
-  // diagnosticCenter=[{centerid:1,centername:"Dr. lal path",address:"Geeta colony",contact:"1234567891"},
-  // {centerid:2,centername:"chuni lal",address:"Surjmal vihar",contact:"1456789780"},
-  // {centerid:3,centername:"Paths labs",address:"vivek vihar",contact:"7564891230"},
-  // {centerid:4,centername:"Gtb diagnosis center",address:"DilshadGarder",contact:"7565691230"}]
+  recordModel:record;
+
+  date:any;
+  // btnStatus=false;
+  // tableStatus=false;
+  buttonstatus=false;
+  currentCenterName:string;
+  // currentTestName="";
+  arrayofDetails:record[];
+  arrayDetails:DiagnosticCenter[];
+  arrayDetails1:any=new Map();
+  // name:string;
+  newArray:any[];
+  centerList:DiagnosticCenter;
   diagnosticCenter=this.serv.diagnosticCenter;
 
   ngOnInit() {
-    this.status=this.serv.getLogstatus();
+    this.load();
   }
 
-  // openDialog(){
-  //   // console.log(event.value);
-  //   this.dialog.open(LoginComponent);
-  //   // this.status=this.serv.getLogstatus();
-
-  // }
-  // tests=[{id=1:[new Test(1,"Glucose"),new Test(2,"sugar test"),new Test(3,"sugar test"),new Test(4,"sugar test")]},
-  // {2:[new Test(1,"Glucose"),new Test(2,"sugar test"),new Test(3,"sugar test"),new Test(4,"sugar test")]},
-  // {3:[new Test(1,"Glucose"),new Test(2,"sugar test"),new Test(3,"sugar test"),new Test(4,"sugar test")]}]
+  load() {
+    this.serv.getAll().subscribe((data)=>{this.arrayDetails=data});
+    this.serv.diagnosticCenter=this.arrayDetails;
+  }
 
 onSelect(center:any){
    this.tableStatus=true;
-   this.currentCenterName=center.centername;
-   this.test=this.serv.onSelect(center.centerid);
+   this.currentCenterName=center.centerName;
+   this.centerId=center.centerId;
+   this.test=center.testList;
+
 }
 onTestSelect(test:Test){
-  this.currentTestName=test.testname;
+  this.currentTestName=test.testName;
     // this.serv.saveRecord(this.arrayDetails);
-
+    this.testId=test.testId;
     this.btnStatus=true;
 }
 openDialog1(){
@@ -61,10 +71,13 @@ dialogRef.afterClosed().subscribe(result => {
   if(result===""){
     console.log(result);
   }else{
-  this.serv.arrayDetails.push(this.serv.getDate?{date:this.serv.getDate(),Centername:this.currentCenterName,testName:this.currentTestName,
-    patientid:Math.floor(Math.abs(Math.random() * 10000))}:null);
-    this.arrayDetails=this.serv.arrayDetails;
-  }
+    this.recordModel={date:this.serv.getDate(),centername:this.currentCenterName,testName:this.currentTestName,
+      patientid:Math.floor(Math.abs(Math.random() * 10000)),centerId:this.centerId,testId:this.testId};
+      this.serv.add(this.recordModel).subscribe((data)=>{
+        this.serv.arrayDetails.push(this.recordModel);
+      })
+
+      this.arrayofDetails=this.serv.arrayDetails}
 });
 }
 

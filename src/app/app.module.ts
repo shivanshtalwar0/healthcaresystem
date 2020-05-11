@@ -28,6 +28,11 @@ import { MaterialModule } from './material/material.module';
 // import { AppointmentmessageComponent } from './pages/appointmentmessage/appointmentmessage.component';
 import { AppointmentMessageComponent } from './pages/appointment/appointment-message/appointment-message.component';
 import { AppointmenthandlerService } from './services/appointmenthandler.service';
+import { CancelAppointmentComponent } from './pages/appointment/cancel-appointment/cancel-appointment.component';
+import { UserHomeComponent } from './pages/user-home/user-home.component';
+import { LoginComponent } from './pages/login/login.component';
+// import { UserHomeComponent } from './user-home/user-home.component';
+// import { CancelAppointmentComponent } from './cancel-appointment/cancel-appointment.component';
 
 
 @NgModule({
@@ -44,6 +49,9 @@ import { AppointmenthandlerService } from './services/appointmenthandler.service
     ViewAppointmentComponent,
     // AppointmentmessageComponent,
     AppointmentMessageComponent,
+    CancelAppointmentComponent,
+    UserHomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

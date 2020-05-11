@@ -1,6 +1,8 @@
-export interface record{
-  date:any;
-  Centername:string,
-  testName:string,
-  patientid:number
+export class record{
+  date:string;
+  centername:string;
+  testName:string;
+  patientid:number;
+  centerId:number;
+  testId:number;
 }
