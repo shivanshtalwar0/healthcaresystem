@@ -13,6 +13,7 @@ export class AddDiagnosticCenterComponent implements OnInit {
   addCenterForm:FormGroup=new FormGroup({
     'centerName':new FormControl('',[Validators.required])
   });
+  
   addCenter(){
     this.diagnosticCenterService.addCenter(this.addCenterForm.value.centerName)
     this.addCenterForm.reset()

@@ -1,0 +1,44 @@
+<div fxLayoutAlign="center center" style="margin-top: 1em">
+
+  <mat-card fxFlex="25" class="cards">
+    
+      <form 
+      style="height:650px; box-shadow: 5px 10px 18px #888888;
+       width: 400px;
+       margin-left: 250px;border-radius: 25px;" >
+
+
+          
+
+          <!--<label for="select center" style="margin-left: 150px;">Select Center</label>
+              <mat-select  style="width: 300px;margin-left: 50px;" [(ngModel)]="cname" name="cname">
+                  <mat-option  *ngFor="let i of center" [value]="i.centerId">
+                      {{i.centerName}}
+                  </mat-option>               
+              </mat-select> 
+
+              
+
+              <mat-form-field class="example-full-width" style="width: 300px; margin-left: 50px;">
+                <mat-label>Test Name</mat-label>
+                <input name="testName" [(ngModel)]="testName" matInput placeholder="Test Name" value="name">
+              </mat-form-field>
+
+              
+-->  
+           <!--  
+             <button (click)="addAttribute()"> add attribute</button>
+            <mat-form-field *ngFor="let attribute of attributes;let i=index" class="example-full-width">
+                <mat-label>Attribute {{i+1}}</mat-label>
+                <input name="value" [(ngModel)]="attribute.value" matInput placeholder="Test Attribute" value="name">
+              </mat-form-field>
+            -->
+        
+            <button class="btn btn-info  my-4" type="submit"  (click)="onsubmit()" style="margin-left: 150px;">Submit</button>
+      
+         
+      </form>
+      
+      
+  </mat-card>
+  </div>

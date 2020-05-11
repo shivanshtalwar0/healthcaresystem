@@ -5,7 +5,9 @@ import {DiagnosticCenter} from '../interfaces/diagnostic-center';
   providedIn: 'root'
 })
 export class DiagnosticCenterService {
+
   centers: Array<DiagnosticCenter> = [];
+  
   updateCenter(centerId:number,centerName:string){
    for(let i=0;i<this.centers.length;i++){
      if(this.centers[i].centerId==centerId){

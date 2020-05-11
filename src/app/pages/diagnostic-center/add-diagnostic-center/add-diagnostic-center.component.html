@@ -1,22 +1,22 @@
 <form [formGroup]="addCenterForm">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Center Name</label>
-    <input
-      formControlName="centerName"
-      type="text"
-      class="form-control"
-      id="exampleInputEmail1"
-    >
-    <small *ngIf="addCenterForm.invalid" class="form-text text-danger">
-      CenterName Required!</small>
-  </div>
-  <div class="justify-content-center d-flex">
-    <button
-
-      [disabled]="addCenterForm.invalid"
-      (click)="addCenter()"
-      class="btn btn-primary">Submit
-    </button>
-  </div>
-
-</form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Center Name</label>
+      <input
+        formControlName="centerName"
+        type="text"
+        class="form-control"
+        id="exampleInputEmail1"
+      >
+      <small *ngIf="addCenterForm.invalid" class="form-text text-danger">
+        CenterName Required!</small>
+    </div>
+    <div class="justify-content-center d-flex">
+      <button
+  
+        [disabled]="addCenterForm.invalid"
+        (click)="addCenter()"
+        class="btn btn-primary">Submit
+      </button>
+    </div>
+  
+  </form>

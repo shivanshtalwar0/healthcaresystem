@@ -16,6 +16,8 @@ export class ViewDiagnosticCenterComponent implements OnInit {
   updateForm:FormGroup=new FormGroup({
     'centerName':new FormControl('',[Validators.required])
   });
+
+  
   deleteCenter(centerId:number){
     this.diagnosticCenterService.deleteCenter(centerId)
   }
@@ -25,6 +27,7 @@ export class ViewDiagnosticCenterComponent implements OnInit {
   }
   updateCenter(centerId:number){
     let centerToBeUpdated=this.centers.find(value => value.centerId==centerId)
+    
     this.updateForm.setValue({centerName:centerToBeUpdated.centerName})
     centerToBeUpdated.shouldUpdate=true;
   }
