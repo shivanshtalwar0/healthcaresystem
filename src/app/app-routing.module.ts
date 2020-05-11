@@ -1,15 +1,22 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {NewDiagnosticCenterComponent} from './pages/new-diagnostic-center/new-diagnostic-center.component';
+import {HomeComponent} from './pages/home/home.component';
+import {AppointmentComponent} from './pages/appointment/appointment.component';
+import {MakeAppointmentComponent} from './pages/appointment/make-appointment/make-appointment.component';
+import {ViewAppointmentComponent} from './pages/appointment/view-appointment/view-appointment.component';
 
 
 const routes: Routes = [
   {
-    path: 'diagnosticCenter',
-    children: [
-      {component: NewDiagnosticCenterComponent, path: 'new'}
+    path: '',
+    component: HomeComponent
+  }, {
+    path: 'users/dashboard', component: AppointmentComponent, children: [
+      {path: '', redirectTo: '/makeappointment', pathMatch: 'full'},
+      {path: 'makeappointment', component: MakeAppointmentComponent},
+      {path: 'viewappointment', component: ViewAppointmentComponent},
     ]
-  },
+  }
 
 
 ];

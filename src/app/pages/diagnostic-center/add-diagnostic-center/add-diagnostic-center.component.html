@@ -1,0 +1,24 @@
+<form [formGroup]="addCenterForm">
+
+  <!--  <div class="form-group">-->
+  <mat-form-field *ngFor="let control of addCenterForm.controls|keyvalue" appearance="fill">
+    <mat-label>{{control.key}}</mat-label>
+    <input
+      [formControlName]="control.key"
+      type="text"
+      matInput>
+    <mat-error *ngIf="control.value.invalid">{{
+      control.value.hasError('required') ? control.key + ' Required' : control.value.hasError('pattern') ? control.key + ' invalid' : ''
+      }}</mat-error>
+  </mat-form-field>
+  <!--  </div>-->
+  <div class="mt-2 justify-content-center d-flex">
+    <button
+
+      [disabled]="addCenterForm.invalid"
+      (click)="addCenter()"
+      class="btn btn-primary">Submit
+    </button>
+  </div>
+
+</form>
