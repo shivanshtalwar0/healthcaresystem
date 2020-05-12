@@ -11,11 +11,24 @@ import {DiagnosticCenterService} from '../../../services/diagnostic-center.servi
 export class AddDiagnosticCenterComponent implements OnInit {
 
   addCenterForm:FormGroup=new FormGroup({
-    'centerName':new FormControl('',[Validators.required])
+    'centerName':new FormControl('',[Validators.required]),
+    'address':new FormControl('',[Validators.required]),
+    'contactNo':new FormControl('',[Validators.required,
+    Validators.pattern(/^[0-9]+$/)
+    ])
   });
   
   addCenter(){
-    this.diagnosticCenterService.addCenter(this.addCenterForm.value.centerName)
+    this.diagnosticCenterService.addCenter(this.addCenterForm.value).subscribe((value:any) => {
+      if(value.success){
+        this.diagnosticCenterService.getCenter();
+      }
+      else {
+        alert(value.error)
+      }
+    })
+
+    // this.diagnosticCenterService.getCenter().subscribe((value => ))
     this.addCenterForm.reset()
     this.onNoClick();
   }

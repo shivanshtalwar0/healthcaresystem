@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "HealthCareSystem"
+  "defaultProject": "HealthCareSystem",
+  "cli": {
+    "analytics": "f5ca7bd7-0897-41f8-9c15-86590bf0b5c0"
+  }
 }

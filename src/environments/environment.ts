@@ -4,8 +4,12 @@
 
 export const environment = {
   production: false,
+<<<<<<< HEAD
     baseMwUrl:"http://localhost:7700"
   
+=======
+  baseMwUrl:'http://localhost:7999/'
+>>>>>>> fa1e61afeab5eb5c6455db0e4a11a9715c141697
 };
 
 /*

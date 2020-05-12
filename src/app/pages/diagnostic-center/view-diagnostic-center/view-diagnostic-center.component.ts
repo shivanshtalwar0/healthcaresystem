@@ -10,30 +10,63 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class ViewDiagnosticCenterComponent implements OnInit {
 
-  centers:Array<DiagnosticCenter>=[];
+  get centers(){
+   return  this.diagnosticCenterService.centers;
+  }
   constructor(private diagnosticCenterService:DiagnosticCenterService) { }
 
+
   updateForm:FormGroup=new FormGroup({
-    'centerName':new FormControl('',[Validators.required])
+    'centerName':new FormControl('',[Validators.required]),
+    'address':new FormControl('',[Validators.required]),
+    'contactNo':new FormControl('',[Validators.required,
+      Validators.pattern(/^[0-9]+$/)
+    ])
   });
 
   
   deleteCenter(centerId:number){
-    this.diagnosticCenterService.deleteCenter(centerId)
+    this.diagnosticCenterService.deleteCenter(centerId).subscribe((value:any)=>{
+      if(value.success){
+        this.diagnosticCenterService.getCenter();
+        alert("deleted")
+      }
+      else {
+        alert(value.error)
+      }
+    })
   }
   save(center:DiagnosticCenter){
-    this.diagnosticCenterService.updateCenter(center.centerId,this.updateForm.value.centerName)
+    this.diagnosticCenterService.updateCenter(center.centerId,this.updateForm.value).subscribe((value:any)=>{
+      if(value.success){
+        alert("updated")
+        this.diagnosticCenterService.getCenter();
+      }
+      else {
+        alert(value.error)
+      }
+    })
 
   }
   updateCenter(centerId:number){
+    this.centers.forEach(value => {
+      if(value.centerId!=centerId){
+        value.shouldUpdate=false
+      }
+    })
     let centerToBeUpdated=this.centers.find(value => value.centerId==centerId)
+<<<<<<< HEAD
     
     this.updateForm.setValue({centerName:centerToBeUpdated.centerName})
+=======
+    this.updateForm.setValue({centerName:centerToBeUpdated.centerName,address:centerToBeUpdated.address,contactNo:centerToBeUpdated.contactNo})
+>>>>>>> fa1e61afeab5eb5c6455db0e4a11a9715c141697
     centerToBeUpdated.shouldUpdate=true;
   }
 
   ngOnInit(): void {
-    this.centers=this.diagnosticCenterService.centers
+    this.diagnosticCenterService.getCenter();
+    // this.centers=this.diagnosticCenterService.centers
   }
 
 }
