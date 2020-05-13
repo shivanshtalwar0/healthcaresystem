@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {NgModule, ApplicationModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -18,13 +18,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './pages/home/home.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule, MatCardActions, MatCard} from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatFormFieldModule, MatLabel, MatFormField, MatError, MatHint, MatFormFieldControl} from '@angular/material/form-field';
 import {HttpClientModule} from '@angular/common/http';
 import { AppointmentComponent } from './pages/appointment/appointment.component';
 import { MakeAppointmentComponent } from './pages/appointment/make-appointment/make-appointment.component';
 import { ViewAppointmentComponent } from './pages/appointment/view-appointment/view-appointment.component';
 import { MaterialModule } from './material/material.module';
+import {MatSelectModule} from '@angular/material/select';
 // import { AppointmentmessageComponent } from './pages/appointmentmessage/appointmentmessage.component';
 import { AppointmentMessageComponent } from './pages/appointment/appointment-message/appointment-message.component';
 import { AppointmenthandlerService } from './services/appointmenthandler.service';
@@ -33,8 +35,12 @@ import { UserHomeComponent } from './pages/user-home/user-home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './pages/register/register.component';
+import { TestmanagementComponent } from './pages/testmanagement/testmanagement.component';
+import { InputtestComponent } from './pages/testmanagement/inputtest/inputtest.component';
+import { DeletetestComponent } from './pages/testmanagement/deletetest/deletetest.component';
 // import { UserHomeComponent } from './user-home/user-home.component';
 // import { CancelAppointmentComponent } from './cancel-appointment/cancel-appointment.component';
+
 
 
 @NgModule({
@@ -52,6 +58,9 @@ import { RegisterComponent } from './pages/register/register.component';
     // AppointmentmessageComponent,
     AppointmentMessageComponent,
     CancelAppointmentComponent,
+TestmanagementComponent,
+InputtestComponent,
+DeletetestComponent,
     UserHomeComponent,
     LoginComponent,
     RegisterComponent
@@ -64,14 +73,16 @@ import { RegisterComponent } from './pages/register/register.component';
     MatOptionModule,
     MatButtonModule,
     MatDialogModule,
+    MatInputModule,
+    MatCardModule,
     NgbModule,
-    ReactiveFormsModule,
+    MatSelectModule,
     MatInputModule,
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    FormsModule,
+    ApplicationModule,
     HttpClientModule,
     MaterialModule,
     ReactiveFormsModule,

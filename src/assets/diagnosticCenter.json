@@ -1,0 +1,38 @@
+
+
+    
+
+    [  {"centerId":100,"centerName":"Dr.Lal Path","testDetails":
+    [{"testId":1,"testName":"Covid-19"},
+        {"testId":2,"testName":"Blood Pressure"},
+        {"testId":3,"testName":"Malaria"},
+    {"testId":65656598744122,"testName":"Colestrol Test"},
+    {"testId": 455,"testName":"Sugar"}]
+    },
+    
+    { "centerId":120,"centerName":"Xrays","testDetails":
+            [{"testId":12,"testName":"Sugar"},
+                {"testId":22,"testName":"Blood Pressure"},
+                {"testId":32,"testName":"Dengue"}]
+    },
+    
+    {  "centerId":155,"centerName":"Pioneer","testDetails":
+            [{"testId":145454,"testName":"Haemoglobin"},
+                {"testId":288,"testName":"Blood Pressure"},
+                {"testId":36,"testName":"Jaundice"},
+                {"testId":55,"testName":"Blood group"}]
+            },
+    
+      { "centerId":6556565,"centerName":"GTB Nagar Center","testDetails":
+            [{"testId":12856,"testName":"Hepatatis B"},
+                {"testId":22452107,"testName":"Anameia"},
+                {"testId":320004,"testName":"Platelet Counts"},
+                {"testId":800541933,"testName":"Ear test"},
+                {"testId":75456,"testName":"ECG "},{
+                    "testId":99996555,"testName":"Eye Test" }]
+                }
+    
+    ]
+
+
+
