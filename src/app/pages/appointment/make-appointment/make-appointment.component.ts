@@ -7,6 +7,7 @@ import { record } from 'src/app/interfaces/record.model';
 import { AppointmentMessageComponent } from '../appointment-message/appointment-message.component';
 import { DiagnosticCenter } from 'src/app/interfaces/diagnosticenter.model';
 import { Test } from 'src/app/interfaces/test.model';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-make-appointment',
@@ -15,7 +16,8 @@ import { Test } from 'src/app/interfaces/test.model';
 })
 export class MakeAppointmentComponent implements OnInit {
 
-  constructor(public dialog:MatDialog,private serv:AppointmenthandlerService){}
+  constructor(public dialog:MatDialog,private serv:AppointmenthandlerService,
+    private tokenStorage:TokenStorageService){}
   test:Test[];
   status:boolean;
   btnStatus=false;
