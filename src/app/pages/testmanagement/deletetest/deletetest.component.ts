@@ -12,11 +12,11 @@ import { Testmodel } from 'src/app/model/testmodel';
 export class DeletetestComponent implements OnInit {
 
 
-  deleteTestFormControl = new FormControl();
+
  success:boolean=false;
   testid="";
-  testList:Testmodel[]=[];
-
+  
+  deleteTestFormControl = new FormControl();
 
   constructor(private service : TestService,@Inject(MAT_DIALOG_DATA)public data:any,
   private dialogRef: MatDialogRef<DeletetestComponent>,
@@ -25,24 +25,20 @@ export class DeletetestComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getArrayOfTest();
+    this.service.getTestList();
   }
 
-
-  getArrayOfTest(){
-    this.service.getTestList().subscribe(
-      (data) => { this.testList = data; }
-    );
+  public get testList(){
+    return this.service.testList;
   }
+ 
 
 
   goToDelete(){
   
-    let orb=this.service.deleteById(this.testid);
-    orb.subscribe((data) => {
-    this.success=true;
-    console.log("Deleted");
-      this.dialogRef.close(); })
+    this.service.deleteById(this.testid);
+   
+      this.dialogRef.close(); 
       
   
   }

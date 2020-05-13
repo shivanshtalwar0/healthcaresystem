@@ -13,6 +13,7 @@ import { environment } from 'src/environments/environment';
 export class TestService {
 
   baseUrl:string;
+   private arrayTest:Array<Testmodel>=[];
 
   /* public testList1 : Testmodel [] = [new Testmodel("Blood Group",1)];
    public testList2 : Testmodel [] = [new Testmodel("Corona Virus",2)];
@@ -37,8 +38,10 @@ export class TestService {
     //test.testId =this .testList.length + 1;
     //this.diagnosticCenter.push(test);
         //}
-        addTest(testModel:Testmodel):Observable<Testmodel>{
-           return this.http.post<Testmodel>(this.baseUrl+"/add",testModel);
+        addTest(testModel:Testmodel){
+           this.http.post<Testmodel>(this.baseUrl+"/add",testModel).subscribe((data)=>{
+             this.getTestList();
+           });
          }
   
  /* removeTest(id:number){
@@ -46,13 +49,25 @@ export class TestService {
     this.diagnosticCenter.splice(test , 1);
   }*/
 
-   deleteById(testId:string):Observable<void>{
-   return this.http.delete<void>(`${this.baseUrl+"/delete"}/${testId}`);
+   deleteById(testId:string){
+    this.http.delete<void>(`${this.baseUrl+"/delete"}/${testId}`).subscribe((data)=>{
+      this.getTestList();
+    });
   }
 
-  getTestList():Observable<Testmodel[]>{
-    return this.http.get<Testmodel[]>(this.baseUrl+"/view");  
+  getTestList(){
+     this.http.get<Testmodel[]>(this.baseUrl+"/view").subscribe((data)=>
+     {
+       this.arrayTest=data;
+     });  
 }
+
+    public get  testList(){
+      return this.arrayTest;
+    }
+
+    
+
   /*getAllCenterDetails():Observable<any[]>
      {
       return this.http.get<any[]>("assets/diagnosticCenter.json");

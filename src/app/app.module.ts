@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {NgModule, ApplicationModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -16,44 +16,33 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './pages/home/home.component';
-<<<<<<< HEAD
-import {ReactiveFormsModule, FormsModule} from '@angular/forms';
-import { TestComponent } from './pages/test/test.component';
-import { AddtestComponent } from './pages/test/addtest/addtest.component';
-import { ViewtestComponent } from './pages/test/viewtest/viewtest.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-
-import {MatCardModule} from '@angular/material/card';
-import {MatSelectModule} from '@angular/material/select';
-import { InsertTestComponent } from './pages/test/insert-test/insert-test.component';
-import { RemoveTestComponent } from './pages/test/remove-test/remove-test.component';
-import {HttpClientModule} from '@angular/common/http';
-
-import { TestmanagementComponent } from './pages/testmanagement/testmanagement.component';
-import { DeletetestComponent } from './pages/testmanagement/deletetest/deletetest.component';
-import { InputtestComponent } from './pages/testmanagement/inputtest/inputtest.component';
-
-
-=======
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule, MatCardActions, MatCard} from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatFormFieldModule, MatLabel, MatFormField, MatError, MatHint, MatFormFieldControl} from '@angular/material/form-field';
 import {HttpClientModule} from '@angular/common/http';
 import { AppointmentComponent } from './pages/appointment/appointment.component';
 import { MakeAppointmentComponent } from './pages/appointment/make-appointment/make-appointment.component';
 import { ViewAppointmentComponent } from './pages/appointment/view-appointment/view-appointment.component';
 import { MaterialModule } from './material/material.module';
+import {MatSelectModule} from '@angular/material/select';
 // import { AppointmentmessageComponent } from './pages/appointmentmessage/appointmentmessage.component';
 import { AppointmentMessageComponent } from './pages/appointment/appointment-message/appointment-message.component';
 import { AppointmenthandlerService } from './services/appointmenthandler.service';
 import { CancelAppointmentComponent } from './pages/appointment/cancel-appointment/cancel-appointment.component';
 import { UserHomeComponent } from './pages/user-home/user-home.component';
 import { LoginComponent } from './pages/login/login.component';
+//import { from } from 'rxjs';
+import { TestmanagementComponent } from './pages/testmanagement/testmanagement.component';
+import { InputtestComponent } from './pages/testmanagement/inputtest/inputtest.component';
+import { DeletetestComponent } from './pages/testmanagement/deletetest/deletetest.component';
+import { ViewtestComponent } from './pages/testmanagement/viewtest/viewtest.component';
+import { UpdatetestComponent } from './pages/testmanagement/viewtest/updatetest/updatetest.component';
+import { TestService } from './services/test.service';
 // import { UserHomeComponent } from './user-home/user-home.component';
 // import { CancelAppointmentComponent } from './cancel-appointment/cancel-appointment.component';
->>>>>>> fa1e61afeab5eb5c6455db0e4a11a9715c141697
+
 
 
 @NgModule({
@@ -65,31 +54,22 @@ import { LoginComponent } from './pages/login/login.component';
     AddDiagnosticCenterComponent,
     ViewDiagnosticCenterComponent,
     HomeComponent,
-<<<<<<< HEAD
-    TestComponent,
-    AddtestComponent,
-    ViewtestComponent,
-    InsertTestComponent,
-    RemoveTestComponent,
-
-    TestmanagementComponent,
-
-    DeletetestComponent,
-
-    InputtestComponent,
-   
-    
-   
-=======
     AppointmentComponent,
     MakeAppointmentComponent,
     ViewAppointmentComponent,
     // AppointmentmessageComponent,
     AppointmentMessageComponent,
     CancelAppointmentComponent,
+TestmanagementComponent,
+InputtestComponent,
+DeletetestComponent,
     UserHomeComponent,
-    LoginComponent
->>>>>>> fa1e61afeab5eb5c6455db0e4a11a9715c141697
+    
+    LoginComponent,
+    
+    ViewtestComponent,
+    
+    UpdatetestComponent
   ],
   imports: [
     BrowserModule,
@@ -101,28 +81,20 @@ import { LoginComponent } from './pages/login/login.component';
     MatDialogModule,
     MatInputModule,
     MatCardModule,
-    MatFormFieldModule,
     NgbModule,
-    ReactiveFormsModule,
-<<<<<<< HEAD
     MatSelectModule,
-    HttpClientModule,
-    FormsModule
-
-=======
     MatInputModule,
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    FormsModule,
+    ApplicationModule,
     HttpClientModule,
     MaterialModule,
     ReactiveFormsModule,
     FormsModule
->>>>>>> fa1e61afeab5eb5c6455db0e4a11a9715c141697
   ],
-  providers: [AppointmenthandlerService],
+  providers: [AppointmenthandlerService,TestService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

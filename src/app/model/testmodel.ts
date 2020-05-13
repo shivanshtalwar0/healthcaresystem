@@ -12,6 +12,7 @@ export class Testmodel {
 	
 	
     public testAttributes:Array<TestAttributes>=[];
+    constructor(){}
     /*constructor(tname:string)
     {
         //this.testAttributes=[];

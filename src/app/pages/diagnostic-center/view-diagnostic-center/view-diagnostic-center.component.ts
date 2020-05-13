@@ -55,12 +55,7 @@ export class ViewDiagnosticCenterComponent implements OnInit {
       }
     })
     let centerToBeUpdated=this.centers.find(value => value.centerId==centerId)
-<<<<<<< HEAD
-    
-    this.updateForm.setValue({centerName:centerToBeUpdated.centerName})
-=======
     this.updateForm.setValue({centerName:centerToBeUpdated.centerName,address:centerToBeUpdated.address,contactNo:centerToBeUpdated.contactNo})
->>>>>>> fa1e61afeab5eb5c6455db0e4a11a9715c141697
     centerToBeUpdated.shouldUpdate=true;
   }
 

@@ -9,21 +9,11 @@ import {of} from 'rxjs';
 })
 export class DiagnosticCenterService {
 
-<<<<<<< HEAD
-  centers: Array<DiagnosticCenter> = [];
-  
-  updateCenter(centerId:number,centerName:string){
-   for(let i=0;i<this.centers.length;i++){
-     if(this.centers[i].centerId==centerId){
-       this.centers[i].centerName=centerName
-       this.centers[i].shouldUpdate=false
-=======
   constructor(private http: HttpClient) {
   }
 
 
   centers: Array<DiagnosticCenter> = [];
->>>>>>> fa1e61afeab5eb5c6455db0e4a11a9715c141697
 
   updateCenter(centerId: number, center:DiagnosticCenter) {
     return this.http.put('http://localhost:8080/update/'+centerId, center, {

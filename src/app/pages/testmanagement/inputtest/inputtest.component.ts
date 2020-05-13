@@ -63,11 +63,10 @@ export class InputtestComponent implements OnInit {
       //console.log(this.len);
       this.model.testAttributes.push(testAttribute); 
     }
-    console.log(this.model);
-    let orb=this.service.addTest(this.model);
-    orb.subscribe((data) => {
+   // console.log(this.model);
+    this.service.addTest(this.model);
     
-    this.dialogRef.close(); })
+    this.dialogRef.close(); 
     
   }
 
