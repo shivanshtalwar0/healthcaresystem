@@ -33,13 +33,11 @@ import { AppointmenthandlerService } from './services/appointmenthandler.service
 import { CancelAppointmentComponent } from './pages/appointment/cancel-appointment/cancel-appointment.component';
 import { UserHomeComponent } from './pages/user-home/user-home.component';
 import { LoginComponent } from './pages/login/login.component';
-//import { from } from 'rxjs';
+import { CommonModule } from '@angular/common';
+import { RegisterComponent } from './pages/register/register.component';
 import { TestmanagementComponent } from './pages/testmanagement/testmanagement.component';
 import { InputtestComponent } from './pages/testmanagement/inputtest/inputtest.component';
 import { DeletetestComponent } from './pages/testmanagement/deletetest/deletetest.component';
-import { ViewtestComponent } from './pages/testmanagement/viewtest/viewtest.component';
-import { UpdatetestComponent } from './pages/testmanagement/viewtest/updatetest/updatetest.component';
-import { TestService } from './services/test.service';
 // import { UserHomeComponent } from './user-home/user-home.component';
 // import { CancelAppointmentComponent } from './cancel-appointment/cancel-appointment.component';
 
@@ -64,12 +62,8 @@ TestmanagementComponent,
 InputtestComponent,
 DeletetestComponent,
     UserHomeComponent,
-    
     LoginComponent,
-    
-    ViewtestComponent,
-    
-    UpdatetestComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -92,9 +86,10 @@ DeletetestComponent,
     HttpClientModule,
     MaterialModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
-  providers: [AppointmenthandlerService,TestService],
+  providers: [AppointmenthandlerService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
