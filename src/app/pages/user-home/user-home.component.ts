@@ -16,9 +16,9 @@ export class UserHomeComponent implements OnInit {
   }
   onClick(){
 
-         this.route.navigate(['users/']);
+         this.route.navigate(['users/dashboard/makeappointment']);
   //   dialogRef.afterClosed().subscribe(result => {
   //  console.log(result); });
  }
- 
+
 }

@@ -4,6 +4,6 @@ export class DiagnosticCenter{
    centerId:any;
 	 centername:string;
 	 address:string;
-   contactInfo:string;
+   contactNo:string;
    testList:Test[];
 }
