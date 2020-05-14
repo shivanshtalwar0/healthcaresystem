@@ -16,6 +16,7 @@ export class UserHomeComponent implements OnInit {
   onClickeView(){
 
     const dialogRef=this.dialog.open(LoginComponent);
+
     dialogRef.afterClosed().subscribe(result => {
    console.log(result); });
  }

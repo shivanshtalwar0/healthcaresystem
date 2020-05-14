@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { AppointmenthandlerService } from 'src/app/services/appointmenthandler.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { SuccessfulMessageComponent } from '../successful-message/successful-message.component';
 
 
 
@@ -19,10 +20,12 @@ export class AppointmentMessageComponent implements OnInit {
    selectedDate:any;
    date:any;
    constructor(public serv:AppointmenthandlerService, public dialogRef: MatDialogRef<AppointmentMessageComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,private router:Router,private active:ActivatedRoute) { }
+    @Inject(MAT_DIALOG_DATA) public data: any,private router:Router,private active:ActivatedRoute,public dialog:MatDialog) { }
 
   value(data:any){
     this.serv.setLogDATE(data);
+    const  dialogRef=this.dialog.open(SuccessfulMessageComponent,{width:'450px',data: {}});
+    dialogRef.afterClosed().subscribe(result=>{console.log(result)});
     this.onNoClick();
     this.bValue=true;
     this.serv.btnStaus=this.bValue;

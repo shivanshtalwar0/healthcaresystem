@@ -31,6 +31,7 @@ import { AppointmenthandlerService } from './services/appointmenthandler.service
 import { CancelAppointmentComponent } from './pages/appointment/cancel-appointment/cancel-appointment.component';
 import { UserHomeComponent } from './pages/user-home/user-home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { SuccessfulMessageComponent } from './pages/appointment/successful-message/successful-message.component';
 // import { UserHomeComponent } from './user-home/user-home.component';
 // import { CancelAppointmentComponent } from './cancel-appointment/cancel-appointment.component';
 
@@ -51,7 +52,8 @@ import { LoginComponent } from './pages/login/login.component';
     AppointmentMessageComponent,
     CancelAppointmentComponent,
     UserHomeComponent,
-    LoginComponent
+    LoginComponent,
+    SuccessfulMessageComponent
   ],
   imports: [
     BrowserModule,

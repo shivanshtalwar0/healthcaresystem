@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  baseMwUrl:'http://localhost:7999/'
+  baseMwUrl:'http://localhost:8888/appointment-service/'
 };
 
-/*
+/*http://localhost:8888/appointment-service/appointments/lists
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
  *
