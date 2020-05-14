@@ -31,7 +31,12 @@ import { AppointmenthandlerService } from './services/appointmenthandler.service
 import { CancelAppointmentComponent } from './pages/appointment/cancel-appointment/cancel-appointment.component';
 import { UserHomeComponent } from './pages/user-home/user-home.component';
 import { LoginComponent } from './pages/login/login.component';
+<<<<<<< HEAD
 import { SuccessfulMessageComponent } from './pages/appointment/successful-message/successful-message.component';
+=======
+import { CommonModule } from '@angular/common';
+import { RegisterComponent } from './pages/register/register.component';
+>>>>>>> 39c593c94da966186756d3ec7734fe4339e2ccd6
 // import { UserHomeComponent } from './user-home/user-home.component';
 // import { CancelAppointmentComponent } from './cancel-appointment/cancel-appointment.component';
 
@@ -53,7 +58,11 @@ import { SuccessfulMessageComponent } from './pages/appointment/successful-messa
     CancelAppointmentComponent,
     UserHomeComponent,
     LoginComponent,
+<<<<<<< HEAD
     SuccessfulMessageComponent
+=======
+    RegisterComponent
+>>>>>>> 39c593c94da966186756d3ec7734fe4339e2ccd6
   ],
   imports: [
     BrowserModule,
@@ -74,7 +83,8 @@ import { SuccessfulMessageComponent } from './pages/appointment/successful-messa
     HttpClientModule,
     MaterialModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   providers: [AppointmenthandlerService],
   bootstrap: [AppComponent]

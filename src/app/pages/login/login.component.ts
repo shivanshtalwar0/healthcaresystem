@@ -1,8 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { AppointmenthandlerService } from 'src/app/services/appointmenthandler.service';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { UserHomeComponent } from '../user-home/user-home.component';
+import { Role } from 'src/app/interfaces/role.enum';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -11,41 +13,72 @@ import { UserHomeComponent } from '../user-home/user-home.component';
 })
 export class LoginComponent implements OnInit {
 
-  private userName="sachin"
-  private password=123456;
-  submitted=false;
-  logstatus:boolean;
+  loginForm: FormGroup;
+  submitted = false;
+  loading = false;
+  returnUrl: string;
+  form: any = {};
+  errorMessage = '';
+  roles: string[] = [];
 
-  onSubmit(uName:string,password:any){
-    password=parseInt(password);
-    // this.submitted=true;
-    if(this.userName===uName && this.password===password){
-      this.logstatus=true;
-      this.submitted=true;
-    }else{
-      this.logstatus=false;
-      this.submitted=true;
-      // this.serv.setLogStatus(this.logstatus);
-      // console.log("Sorry"+uName+"not A valid membr")
-          //  this.childData.emit("sorry!!!Invalid userid and name");
 
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private authenticationService: AuthenticationService,
+    private tokenStorage:TokenStorageService) { }
+
+  ngOnInit(): void {
+    this.loginForm = this.fb.group({
+      logEmail: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      logPassword: ['', [Validators.required, Validators.pattern('^(?=.*?[A-Z])(?=.*[$@$!%*?&])(?=.*?[a-z])(?=.*?[0-9]).{8,14}$')]],
+    });
+
+
+    if (this.tokenStorage.getToken) {
+      this.roles = this.tokenStorage.getUser().roles;
+    }
+  }
+  get loginFormControl() {
+    return this.loginForm.controls;
+  }
+  onSubmit() {
+    
+    this.submitted = true;
+    this.authenticationService.login(
+      this.loginForm.value.logEmail,
+      this.loginForm.value.logPassword)
+      .subscribe((data) => {
+        this.tokenStorage.saveToken(data.token);
+        //this.tokenStorage.saveUser(data);
+        this.tokenStorage.saveRoles(data.rolesList);
+        this.tokenStorage.setAuthenticated();
+        //this.roles = this.tokenStorage.getUser().roles;
+        // this.reloadPage();
+        this.redirectTo();
+      },
+        err => {
+          this.errorMessage = err.error.message;
         }
-        if(this.logstatus){
-          this.router.navigate(["users/dashboard/makeappointment"]);
-        }
-    this.onNoClick();
-}
-
-  // @Output() public childData=new EventEmitter();
-  // @Output() public data=new EventEmitter
-  constructor(private serv:AppointmenthandlerService,public dialogRef: MatDialogRef<UserHomeComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,private router:Router) { }
-
-    ngOnInit(): void {
+      );
+  }
+  // reloadPage() {
+  //   window.location.reload();
+  // }
+  redirectTo(){
+    if(this.tokenStorage.isLoggedIn)
+    {
+      if(this.tokenStorage.getRoles.includes('ADMIN')){
+        this.router.navigate(['admin/diagnostic-center']);
       }
-      onNoClick(): void {
-        this.dialogRef.close();}
-
+      // if(this.tokenStorage.getRoles.includes('FACILITATOR')){
+      //   this.router.navigate('/faciliatator')
+      // }
+      else{
+      this.router.navigate(['/users']);
+    }
+    }
+  }
   }
 
 

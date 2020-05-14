@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3 mt-4">
+    <h3>Register New User</h3>
+    <div>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+          <label for="registerEmail">Email</label>
+          <input type="email" class="form-control" id="registerEmailID" placeholder="Enter Email"
+            formControlName="regEmail"
+            [ngClass]="{ 'is-invalid': submitted && registerFormControl.regEmail.errors}">
+          <div *ngIf="submitted && registerFormControl.regEmail.errors" class="invalid-feedback">
+            <div *ngIf="registerFormControl.regEmail.errors.required">Email is required</div>
+            <div *ngIf="registerFormControl.regEmail.errors.email">Email must be a valid email address</div>
+            <div *ngIf="registerFormControl.regEmail.errors.pattern">Email not valid</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="fisrtName">First Name</label>
+          <input type="text" class="form-control" id="firstNameID" placeholder="Enter First Name"
+            formControlName="frName" 
+            [ngClass]="{ 'is-invalid': submitted && registerFormControl.frName.errors}">
+          <div *ngIf="submitted && registerFormControl.frName.errors" class="invalid-feedback">
+            <span *ngIf="registerFormControl.frName.errors.required">First Name is required</span>
+            <div *ngIf="registerFormControl.frName.errors.maxlength">First Name cannot be more than 15 characters
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" id="lastNameID" placeholder="Enter Last Name"
+            formControlName="lsName" [ngClass]="{ 'is-invalid': submitted && registerFormControl.lsName.errors}">
+          <div *ngIf="submitted && registerFormControl.lsName.errors" class="invalid-feedback">
+            <div *ngIf="registerFormControl.lsName.errors.required">Last Name is required</div>
+            <div *ngIf="registerFormControl.lsName.errors.maxlength">Last Name cannot be more than 15 characters</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="contact">Contact</label>
+          <input type="tel" class="form-control" id="contactID" placeholder="Enter Contact" 
+          formControlName="ctNumber" [ngClass]="{ 'is-invalid': submitted && registerFormControl.ctNumber.errors}">
+          <div *ngIf="submitted && registerFormControl.ctNumber.errors" class="invalid-feedback">
+            <div *ngIf="registerFormControl.ctNumber.errors.required">Mobile Number is required</div>
+            <div *ngIf="registerFormControl.ctNumber.errors.pattern">Mobile number not valid</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="regiterPassword">Password</label>
+          <input type="password" class="form-control" id="registerPasswordID" placeholder="Password"
+            formControlName="regPassword" [ngClass]="{ 'is-invalid': submitted && registerFormControl.regPassword.errors}">
+          <div *ngIf="submitted && registerFormControl.regPassword.errors" class="invalid-feedback">
+            <div *ngIf="registerFormControl.regPassword.errors.required">Password is required</div>
+            <div *ngIf="registerFormControl.regPassword.errors.pattern">Password is invalid</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" class="form-control" id="confirmPasswordID" placeholder="Password"
+            formControlName="confPassword" [ngClass]="{ 'is-invalid': submitted && registerFormControl.confPassword.errors}">
+          <div *ngIf="submitted && registerFormControl.confPassword.errors" class="invalid-feedback">
+            <div *ngIf="registerFormControl.confPassword.errors.required">Confirm Password is required</div>
+            <div *ngIf="registerFormControl.confPassword.errors.MatchPassword">Passwords must match</div>
+          </div>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-success">Register</button>
+          <button class="btn btn-success" type="reset" (click)="onReset()">Reset</button>
+          <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
