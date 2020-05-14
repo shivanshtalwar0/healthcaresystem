@@ -54,7 +54,7 @@ export class MakeAppointmentComponent implements OnInit {
 onSelect(center:any){
    this.tableStatus=true;
    this.currentCenterName=center.centerName;
-   this.centerId=center.centerId;
+   this.centerId=center.id;
    this.test=center.testList;
 
 }
