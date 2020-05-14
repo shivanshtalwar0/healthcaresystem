@@ -13,16 +13,7 @@ export class DiagnosticCenterService {
   constructor(private http: HttpClient,private tokenStorageService:TokenStorageService) {
   }
 
-  get httpOption(){
-    return {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization:"Bearer "+this.tokenStorageService.getToken
-      }
-    }
-  }
-
-  baseUrl='http://localhost:8888/diagnostic-service/diagnosticCenter'
+  baseUrl='diagnostic-service/diagnosticCenter'
 
 
   centers: Array<DiagnosticCenter> = [];
