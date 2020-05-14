@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseMwUrl:'http://localhost:7999/'
+  baseMwUrl:'http://localhost:7700/testoperations'
 };
 
 /*

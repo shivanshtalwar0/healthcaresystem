@@ -11,15 +11,17 @@ import { AuthGuard } from './guards/auth.guard';
 import { DiagnosticCenterComponent } from './pages/diagnostic-center/diagnostic-center.component';
 import { AddDiagnosticCenterComponent } from './pages/diagnostic-center/add-diagnostic-center/add-diagnostic-center.component';
 import { ViewDiagnosticCenterComponent } from './pages/diagnostic-center/view-diagnostic-center/view-diagnostic-center.component';
+import {AdminauthGuard} from './guards/adminauth.guard';
 
 
 const routes: Routes = [
   {
     path: '',
     component: UserHomeComponent
-  },  
+  },
+
   {path:'users',component:UserHomeComponent},
-  { path:'users/dashboard', canActivate:[AuthGuard],canActivateChild:[AuthGuard], 
+  { path:'users/dashboard', canActivate:[AuthGuard],canActivateChild:[AuthGuard],
       component: AppointmentComponent, children: [
       {path: 'makeappointment', component: MakeAppointmentComponent},
       {path: 'viewappointment', component: ViewAppointmentComponent},
@@ -27,15 +29,18 @@ const routes: Routes = [
   },
   {
     path:'users',children:[
-      { path:'login',component:LoginComponent },  
+      { path:'login',component:LoginComponent },
       { path:'register',component:RegisterComponent  }
     ]
   },
   {
-    path:'admin',children:[
-      { path:'',component:DiagnosticCenterComponent},
-      { path:'add-diagnostic-center',component:AddDiagnosticCenterComponent },  
-      { path:'view-diagnostic-center',component:ViewDiagnosticCenterComponent  }
+    path:'admin',
+    canActivate:[AdminauthGuard],
+    children:[
+      { path:'dashboard',component:HomeComponent,canActivateChild:[AdminauthGuard]},
+      // { path:'dashboard',component:DiagnosticCenterComponent},
+      // { path:'add-diagnostic-center',component:AddDiagnosticCenterComponent },
+      // { path:'view-diagnostic-center',component:ViewDiagnosticCenterComponent  }
     ]
   }
 

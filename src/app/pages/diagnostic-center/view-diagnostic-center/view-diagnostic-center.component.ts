@@ -23,6 +23,8 @@ export class ViewDiagnosticCenterComponent implements OnInit {
       Validators.pattern(/^[0-9]+$/)
     ])
   });
+
+  
   deleteCenter(centerId:number){
     this.diagnosticCenterService.deleteCenter(centerId).subscribe((value:any)=>{
       if(value.success){

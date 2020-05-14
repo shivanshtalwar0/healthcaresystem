@@ -1,6 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {AddDiagnosticCenterComponent} from './add-diagnostic-center/add-diagnostic-center.component';
 import {MatDialog} from '@angular/material/dialog';
+import { Router } from '@angular/router';
+
+
+
+
+
 
 @Component({
   selector: 'app-diagnostic-center',
@@ -9,7 +15,7 @@ import {MatDialog} from '@angular/material/dialog';
 })
 export class DiagnosticCenterComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog,private router:Router) {
   }
 
   openDialog(): void {
@@ -22,6 +28,14 @@ export class DiagnosticCenterComponent implements OnInit {
       console.log('The dialog was closed');
 
     });
+  }
+
+  goToAddTest(){
+    this.router.navigate['/addtest'];
+  }
+
+  goToDeleteTest(){
+    this.router.navigate['/deletetest'];
   }
 
 
