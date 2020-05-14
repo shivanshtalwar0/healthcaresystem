@@ -1,0 +1,21 @@
+<form [formGroup]="addTestForm">
+  <mat-form-field >
+    <mat-label>Choose Test</mat-label>
+    <mat-select formControlName="testId">
+      <mat-option *ngFor="let test of testsNotAdded" [value]="test.testId">
+        {{test.testName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="d-flex justify-content-center">
+    <button (click)="addTest()" [disabled]="addTestForm.invalid" class="btn btn-success">
+      Add
+    </button>
+  </div>
+</form>
+
+
+<ul style="color: black" *ngFor="let test of testList">
+  <li style="color: black">{{test.testName}}</li>
+</ul>
+

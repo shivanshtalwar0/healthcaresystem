@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { TestService } from 'src/app/services/test.service';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdatetestComponent } from './updatetest/updatetest.component';
-import { FormGroup } from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { DeletetestComponent } from '../deletetest/deletetest.component';
 import { TestModel } from 'src/app/model/testmodel';
 import { TestAttributes } from 'src/app/model/test-attributes';
+import {UpdateTestComponent} from '../update-test/update-test.component';
 
 @Component({
   selector: 'app-viewtest',
@@ -34,15 +35,16 @@ export class ViewtestComponent implements OnInit {
 
 
 
-  updateTest(testId:TestModel){
-    this.service.toggleUpdate(testId);
-   //  const dialogRef = this.dialog.open(UpdatetestComponent,{
-   //    data:{}
-   //  });
-   //  //dialogTitle: test, dialogText:i
-   //  dialogRef.afterClosed().subscribe(result => {
-   // })
+  updateTest(testModel:TestModel){
+    // this.service.toggleUpdate(testId);
+    const dialogRef = this.dialog.open(UpdateTestComponent,{
+      data:{testModel}
+    });
+    //dialogTitle: test, dialogText:i
+    dialogRef.afterClosed().subscribe(result => {
+   })
   }
+
 
   save(testId:TestModel){
 
