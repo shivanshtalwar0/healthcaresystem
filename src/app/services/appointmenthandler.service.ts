@@ -25,7 +25,7 @@ export class AppointmenthandlerService {
 
     public diagnosticCenter:any[]=[];
   constructor(private http:HttpClient) {
-    this.baseUrl=`${environment.baseMwUrl}/appointments`;
+    this.baseUrl=`appointment-service/appointments`;
   }
 
   getAll():Observable<DiagnosticCenter[]>{

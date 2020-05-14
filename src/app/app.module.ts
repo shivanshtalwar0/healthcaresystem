@@ -41,7 +41,11 @@ import {DeletetestComponent} from './pages/testmanagement/deletetest/deletetest.
 import {ViewtestComponent} from './pages/testmanagement/viewtest/viewtest.component';
 import {UpdatetestComponent} from './pages/testmanagement/viewtest/updatetest/updatetest.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+<<<<<<< HEAD
 import { UserDetailComponent } from './pages/user-detail/user-detail.component';
+=======
+import {httpInterceptorProviders} from './interceptors';
+>>>>>>> eff4be667306780aad11bc56e53dee79c7d3123c
 // import { UserHomeComponent } from './user-home/user-home.component';
 // import { CancelAppointmentComponent } from './cancel-appointment/cancel-appointment.component';
 
@@ -95,7 +99,7 @@ import { UserDetailComponent } from './pages/user-detail/user-detail.component';
     CommonModule,
     FontAwesomeModule
   ],
-  providers: [AppointmenthandlerService],
+  providers: [AppointmenthandlerService,httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule {
