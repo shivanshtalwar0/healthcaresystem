@@ -1,3 +1,4 @@
+//import { TestmodelInterface } from '../model/testmodel';
 
 export class DiagnosticCenter {
   constructor(public centerId:number,
@@ -7,3 +8,9 @@ export class DiagnosticCenter {
   public shouldUpdate:boolean) {
   }
 }
+/*export class DiagnosticCenterModel implements DiagnosticCenter{
+  centerId: number;
+  centerName: string;
+  shouldUpdate: boolean;
+ // tests: TestmodelInterface[];
+}*/

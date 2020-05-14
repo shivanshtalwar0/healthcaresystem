@@ -3,28 +3,36 @@ import {DiagnosticCenter} from '../interfaces/diagnostic-center';
 import {HttpClient} from '@angular/common/http';
 import {map, mapTo, pluck, toArray} from 'rxjs/operators';
 import {of} from 'rxjs';
+import {TokenStorageService} from './token-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DiagnosticCenterService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private tokenStorageService:TokenStorageService) {
   }
+
+  get httpOption(){
+    return {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization:"Bearer "+this.tokenStorageService.getToken
+      }
+    }
+  }
+
+  baseUrl='http://localhost:8888/diagnostic-service/diagnosticCenter'
 
 
   centers: Array<DiagnosticCenter> = [];
 
   updateCenter(centerId: number, center:DiagnosticCenter) {
-    return this.http.put('http://localhost:8080/update/'+centerId, center, {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
+    return this.http.put(this.baseUrl+'/'+centerId, center, this.tokenStorageService.httpOption)
   }
 
   getCenter() {
-    this.http.get('http://localhost:8080/list').subscribe((value:any) => {
+    this.http.get(this.baseUrl,this.tokenStorageService.httpOption).subscribe((value:any) => {
       if(value.success){
        this.centers=value.data.map((val)=>({centerId:val.id,centerName:val.centerName,
          address:val.address,
@@ -35,19 +43,11 @@ export class DiagnosticCenterService {
   }
 
   addCenter(data) {
-    return this.http.post('http://localhost:8080/new', data, {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
+    return this.http.post(this.baseUrl, data, this.tokenStorageService.httpOption)
   }
 
   deleteCenter(centerId: number) {
-    return this.http.delete('http://localhost:8080/delete/'+centerId, {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
+    return this.http.delete(this.baseUrl+"/"+centerId, this.tokenStorageService.httpOption)
   }
 
 }

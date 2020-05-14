@@ -17,6 +17,7 @@ export class AddDiagnosticCenterComponent implements OnInit {
     Validators.pattern(/^[0-9]+$/)
     ])
   });
+  
   addCenter(){
     this.diagnosticCenterService.addCenter(this.addCenterForm.value).subscribe((value:any) => {
       if(value.success){

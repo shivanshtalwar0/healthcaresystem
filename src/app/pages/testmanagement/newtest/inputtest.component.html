@@ -1,0 +1,55 @@
+<mat-card class="shadow-none">
+  <mat-card-header>
+    <div class="d-flex justify-content-center">
+      <mat-card-title>Add Test</mat-card-title>
+    </div>
+
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="newTestForm" class="">
+      <mat-form-field class="example-full-width">
+        <mat-label>Test Name</mat-label>
+        <input matInput
+               formControlName="testName"
+               placeholder="TestName"
+               name="Test Name">
+        <mat-error *ngIf="!newTestForm.hasError('required')">
+          Please Give the input
+        </mat-error>
+      </mat-form-field>
+
+      <div class="pt-3">
+        <button mat-button color="green" (click)="addAttribute()">
+          <mat-icon class="text-success">add</mat-icon> add Atribute
+        </button>
+
+        <div class="row" style="width:10em;">
+          <div class="col-12" *ngFor="let attribute of newTestForm.get('testAttributes').value;let i=index">
+
+            <mat-form-field>
+              <mat-label>Attribute {{i + 1}}</mat-label>
+              <input style="width: auto;" name="testAttributeName"
+                     [formControl]="attribute"
+                      matInput placeholder="Test Attribute"
+                     value="name">
+              <mat-error *ngIf="!newTestForm.hasError('required')">
+                Please Give the input
+              </mat-error>
+              <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="newTestForm.get('testAttributes').value.splice(i,1)">
+                <mat-icon class="text-danger">close</mat-icon>
+              </button>
+            </mat-form-field>
+
+          </div>
+        </div>
+
+
+      </div>
+    </form>
+
+  </mat-card-content>
+
+  <mat-card-actions class="d-flex justify-content-center">
+    <button [disabled]="newTestForm.invalid" class="btn btn-success" (click)="goToAddTest()">SUBMIT</button>
+  </mat-card-actions>
+</mat-card>
