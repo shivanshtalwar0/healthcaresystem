@@ -19,7 +19,8 @@ export class LoginComponent implements OnInit {
   returnUrl: string;
   form: any = {};
   errorMessage = '';
-  roles: string[] = [];
+  roles: string[] = [];	
+  errors=null;
 
 
   constructor(
@@ -55,6 +56,7 @@ export class LoginComponent implements OnInit {
         this.redirectTo();
       },
         err => {
+	  this.errors=err;
           this.errorMessage = err.error.message;
         }
       );

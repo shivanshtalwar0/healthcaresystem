@@ -65,9 +65,13 @@
         <div class="text-center">
           <button type="submit" class="btn btn-success">Register</button>
           <button class="btn btn-success" type="reset" (click)="onReset()">Reset</button>
-          <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
+          <a [routerLink]="['/users/login']" class="btn btn-link">Cancel</a>
 
         </div>
+
+	<div class="alert alert-danger" role="alert" *ngIf="submitted && errors">
+  		Email Already In Use
+	</div>
       </form>
     </div>
   </div>
