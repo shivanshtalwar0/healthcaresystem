@@ -19,7 +19,7 @@ export class TokenStorageService {
     window.sessionStorage.removeItem('TOKEN_KEY');
     window.sessionStorage.setItem('TOKEN_KEY', token);
   }
-  
+
   public get getToken(): string {
     return sessionStorage.getItem('TOKEN_KEY');
   }
@@ -41,15 +41,24 @@ export class TokenStorageService {
     return window.sessionStorage.getItem('IS_AUTHENTICATED')==='true';
   }
 
-  public saveRoles(Roles){
+  public saveRoles(Roles:[any]){
     let tempRoles=[];
-    Roles.array.forEach(element => {
+    Roles.forEach(element => {
       tempRoles.push(element.authority);
     });
     window.sessionStorage.setItem('roles',JSON.stringify(tempRoles));
   }
-  
+
   public get getRoles():Array<string>{
     return JSON.parse(window.sessionStorage.getItem('roles'));
+  }
+
+  get httpOption(){
+    return {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization:"Bearer "+this.getToken
+      }
+    }
   }
 }

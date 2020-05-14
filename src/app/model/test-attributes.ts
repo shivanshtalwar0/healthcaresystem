@@ -1,5 +1,9 @@
-export class TestAttributes {
+export interface TestAttributesInterface {
+  testAttributeName:string
+}
 
-    testAttributeName:string;
-	id:number;
+
+export class TestAttributes implements TestAttributesInterface{
+    constructor(public testAttributeName:string) {
+    }
 }

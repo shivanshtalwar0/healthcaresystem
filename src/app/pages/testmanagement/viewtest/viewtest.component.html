@@ -1,91 +1,73 @@
-
 <table class="mt-2 table table-striped">
-    <thead>
-    <tr>
-      <th scope="col">Test Name</th>
-      <th scope="col">Test Id</th>
-      <th scope="col">Test Attributes Name</th>
-      <th scope="col">Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngIf="testList.length===0">
-      <td colspan="100%">
-        <p>No data</p>
-      </td>
-    </tr>
-    <tr *ngFor="let test of testList; index as i">
-      <td >
-        <span  *ngIf="!test.shouldUpdate">
+  <thead>
+  <tr>
+    <th scope="col">Test Name</th>
+    <th scope="col">Test Attributes Name</th>
+    <th scope="col">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngIf="testList.length===0">
+    <td colspan="100%">
+      <p>No data</p>
+    </td>
+  </tr>
+  <tr *ngFor="let test of testList; index as i">
+    <td>
+        <span *ngIf="!test.shouldUpdate">
           {{ test.testName }}
         </span>
-        <div
-          [formGroup]="updateForm"
-          *ngIf="test.shouldUpdate">
-          <input
-            formControlName="centerName"
-            type="text"
-            class="form-control"
-          >
-        </div>
-  
-      </td>
-      <td >
-        <span  *ngIf="!test.shouldUpdate">
-          {{ test.testId }}
-        </span>
-        <div
-          [formGroup]="updateForm"
-          *ngIf="test.shouldUpdate">
-          <input
-            formControlName="contactNo"
-            type="text"
-            name="contactNo"
-            class="form-control"
-          >
-        </div>
-  
-      </td>
-      <td >
-        <span  *ngIf="!test.shouldUpdate">
-            <!-- <ul>
-                <li *ngFor="let i of center.testAttributes">{{i.testAttributeName}}</li>
+      <div
+        [formGroup]="updateForm"
+        *ngIf="test.shouldUpdate">
+        <input
+          formControlName="centerName"
+          type="text"
+          class="form-control"
+        >
+      </div>
+
+    </td>
+
+    <td>
+        <span>
+          <ul *ngIf="!test.shouldUpdate">
+                <li *ngFor="let i of test.testAttributes">{{i.testAttributeName}}</li>
             </ul>
-            -->
-           <!-- {{center | json}} -->
-        </span>
-        <div
-          [formGroup]="updateForm"
-          *ngIf="test.shouldUpdate">
-          <input
-            formControlName="address"
-            name="address"
-            type="text"
-            class="form-control"
-          >
-        </div>
-  
-      </td>
-      <td>
-        <button
-          [disabled]="updateForm.invalid"
-          (click)="save(test.testId)"
-          type="button" class="m-1 btn btn-success"
-          *ngIf="test.shouldUpdate"
-        >Save</button>
-        <button
-          
-          (click)="updateTest(test.testId)"
-          type="button" class="m-1 btn btn-outline-info" data-toggle="modal" data-target="#exampleModal" >
-          Update
-        </button>
-        <button
-          *ngIf="!test.shouldUpdate"
-          (click)="deleteTest(test.testId)"
-          type="button" class="m-1 btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
-          Delete
-        </button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+           </span>
+      <div
+        [formGroup]="updateForm"
+        *ngIf="test.shouldUpdate">
+        <input
+          formControlName="address"
+          name="address"
+          type="text"
+          class="form-control"
+        >
+      </div>
+
+    </td>
+    <td>
+      <button
+        [disabled]="updateForm.invalid"
+        (click)="save(test)"
+        type="button" class="m-1 btn btn-success"
+        *ngIf="test.shouldUpdate"
+      >Save
+      </button>
+      <button
+
+        (click)="updateTest(test)"
+        type="button" class="m-1 btn btn-outline-info" data-toggle="modal" data-target="#exampleModal">
+        Update
+      </button>
+      <button
+        *ngIf="!test.shouldUpdate"
+        (click)="deleteTest(test)"
+        type="button" class="m-1 btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+        Delete
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>

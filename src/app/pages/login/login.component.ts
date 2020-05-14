@@ -30,8 +30,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      logEmail: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-      logPassword: ['', [Validators.required, Validators.pattern('^(?=.*?[A-Z])(?=.*[$@$!%*?&])(?=.*?[a-z])(?=.*?[0-9]).{8,14}$')]],
+      logEmail: ['', [Validators.required]],
+      logPassword: ['', [Validators.required]],
     });
 
 
@@ -43,18 +43,15 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls;
   }
   onSubmit() {
-    
+
     this.submitted = true;
     this.authenticationService.login(
       this.loginForm.value.logEmail,
       this.loginForm.value.logPassword)
       .subscribe((data) => {
         this.tokenStorage.saveToken(data.token);
-        //this.tokenStorage.saveUser(data);
-        this.tokenStorage.saveRoles(data.rolesList);
+        this.tokenStorage.saveRoles(data.authorityList);
         this.tokenStorage.setAuthenticated();
-        //this.roles = this.tokenStorage.getUser().roles;
-        // this.reloadPage();
         this.redirectTo();
       },
         err => {
@@ -68,8 +65,8 @@ export class LoginComponent implements OnInit {
   redirectTo(){
     if(this.tokenStorage.isLoggedIn)
     {
-      if(this.tokenStorage.getRoles.includes('ADMIN')){
-        this.router.navigate(['admin/diagnostic-center']);
+      if(this.tokenStorage.getRoles.indexOf('ADMIN')>-1){
+        this.router.navigate(['admin/dashboard']);
       }
       // if(this.tokenStorage.getRoles.includes('FACILITATOR')){
       //   this.router.navigate('/faciliatator')

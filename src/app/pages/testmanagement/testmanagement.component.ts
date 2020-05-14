@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 //import { DeletetestComponent } from './deletetest/deletetest.component';
-import { InputtestComponent } from './inputtest/inputtest.component';
+import { InputtestComponent } from './newtest/inputtest.component';
 
 @Component({
   selector: 'app-testmanagement',
@@ -10,6 +10,9 @@ import { InputtestComponent } from './inputtest/inputtest.component';
   styleUrls: ['./testmanagement.component.css']
 })
 export class TestmanagementComponent implements OnInit {
+  public get addIcon(){
+    return faCoffee;
+  }
 
   constructor(private dialog? : MatDialog ) { }
 
@@ -19,9 +22,10 @@ export class TestmanagementComponent implements OnInit {
   goToAdd()
   {
     const dialogRef = this.dialog.open(InputtestComponent,{
-      data : {}
+      data : {},
+      height:'30em'
     });
- 
+
     dialogRef.afterClosed().subscribe(result => {
    })
   }
