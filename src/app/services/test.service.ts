@@ -22,7 +22,9 @@ export class TestService {
     });
   }
   updateTest(testModel:TestModel){
-
+    this.http.put<TestModel>(this.baseUrl + '/update/'+testModel.testId, testModel).subscribe((data) => {
+      this.getTestList();
+    });
   }
 
   toggleUpdate(testModel:TestModel){

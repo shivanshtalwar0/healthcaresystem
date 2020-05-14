@@ -41,11 +41,13 @@ import {DeletetestComponent} from './pages/testmanagement/deletetest/deletetest.
 import {ViewtestComponent} from './pages/testmanagement/viewtest/viewtest.component';
 import {UpdatetestComponent} from './pages/testmanagement/viewtest/updatetest/updatetest.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-<<<<<<< HEAD
+
 import { UserDetailComponent } from './pages/user-detail/user-detail.component';
-=======
+
 import {httpInterceptorProviders} from './interceptors';
->>>>>>> eff4be667306780aad11bc56e53dee79c7d3123c
+
+import { MangeTestComponent } from './pages/diagnostic-center/mange-test/mange-test.component';
+import { UpdateTestComponent } from './pages/testmanagement/update-test/update-test.component';
 // import { UserHomeComponent } from './user-home/user-home.component';
 // import { CancelAppointmentComponent } from './cancel-appointment/cancel-appointment.component';
 
@@ -72,6 +74,8 @@ import {httpInterceptorProviders} from './interceptors';
     RegisterComponent,
     ViewtestComponent,
     UpdatetestComponent,
+    MangeTestComponent,
+    UpdateTestComponent,
     UserDetailComponent
   ],
   imports: [
