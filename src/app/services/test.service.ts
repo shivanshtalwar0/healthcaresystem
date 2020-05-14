@@ -13,17 +13,16 @@ export class TestService {
 
   constructor(private http: HttpClient) {
     // this.baseUrl=`${environment.baseMwUrl}/testoperations`; //http://localhost:7700/testoperations
-    this.baseUrl = 'http://localhost:7700/testoperations';
+    this.baseUrl = 'test-management-micro-service/testoperations';
   }
 
   addTest(testModel: TestModel) {
-    this.arrayTest.push(testModel)
-    // this.http.post<TestModel>(this.baseUrl + '/add', testModel).subscribe((data) => {
-    //   this.getTestList();
-    // });
+    this.http.post<TestModel>(this.baseUrl + '/add', testModel).subscribe((data) => {
+      this.getTestList();
+    });
   }
   updateTest(testModel:TestModel){
-    this.arrayTest[this.arrayTest.indexOf(testModel)]=testModel
+
   }
 
   toggleUpdate(testModel:TestModel){
@@ -40,17 +39,15 @@ export class TestService {
 
 
   deleteById(test:TestModel) {
-    this.arrayTest.splice(this.arrayTest.indexOf(test),1)
-    // this.http.delete<void>(`${this.baseUrl + '/delete'}/${testId}`).subscribe((data) => {
-    //   this.getTestList();
-    // });
+    this.http.delete<void>(`${this.baseUrl}/delete/${test.testId}`).subscribe((data) => {
+      this.getTestList();
+    });
   }
 
   getTestList() {
-    // this.http.get<TestModel[]>(this.baseUrl + '/view').subscribe((data) => {
-    //   this.arrayTest = data;
-    //
-    // });
+    this.http.get<TestModel[]>(this.baseUrl + '/view').subscribe((data) => {
+      this.arrayTest = data;
+    });
   }
 
   public get testList() {

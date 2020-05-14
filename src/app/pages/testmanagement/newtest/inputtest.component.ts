@@ -42,7 +42,7 @@ export class InputtestComponent implements OnInit {
     this.newTestForm.value.testAttributes.forEach((control) => {
       testAttributes.push(new TestAttributes(control.value));
     });
-    let testModel = new TestModel(this.newTestForm.value.testName, testAttributes,false);
+    let testModel = new TestModel(null,this.newTestForm.value.testName, testAttributes,false);
     this.service.addTest(testModel);
     console.log(testModel);
     this.dialogRef.close();
