@@ -25,12 +25,10 @@ export class DiagnosticCenterService {
 
   getCenter() {
     this.http.get(this.baseUrl).subscribe((value:any) => {
-      if(value.success){
-       this.centers=value.data.map((val)=>({centerId:val.id,centerName:val.centerName,
+       this.centers=value.map((val)=>({centerId:val.id,centerName:val.centerName,
          address:val.address,
          contactNo:val.contactNo,
          shouldUpdate:false}))
-      }
   });
   }
 
