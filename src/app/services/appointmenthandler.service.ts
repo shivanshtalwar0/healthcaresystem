@@ -25,8 +25,13 @@ export class AppointmenthandlerService {
   public arrayDetails:record[]=[];
 
     public diagnosticCenter:any[]=[];
+<<<<<<< HEAD
   constructor(private http:HttpClient,private tokenStorageService:TokenStorageService) {
     this.baseUrl=`${environment.baseMwUrl}/appointment-service/appointments`;
+=======
+  constructor(private http:HttpClient) {
+    this.baseUrl=`appointment-service/appointments`;
+>>>>>>> 7e5f345790911198835c6aaaa6c6a17d039f8021
   }
 
   getAll():Observable<DiagnosticCenter[]>{

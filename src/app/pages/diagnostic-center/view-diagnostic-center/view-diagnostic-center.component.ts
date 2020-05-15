@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {DiagnosticCenter} from '../../../interfaces/diagnostic-center';
+import {DiagnosticCenter} from '../../../model/DiagnosticCenter';
 import {DiagnosticCenterService} from '../../../services/diagnostic-center.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AddDiagnosticCenterComponent} from '../add-diagnostic-center/add-diagnostic-center.component';
+import {MatDialog} from '@angular/material/dialog';
+import {MangeTestComponent} from '../mange-test/mange-test.component';
+import {TestModel} from '../../../model/testmodel';
 
 @Component({
   selector: 'app-view-diagnostic-center',
@@ -13,7 +17,19 @@ export class ViewDiagnosticCenterComponent implements OnInit {
   get centers(){
    return  this.diagnosticCenterService.centers;
   }
-  constructor(private diagnosticCenterService:DiagnosticCenterService) { }
+  constructor(public dialog: MatDialog,private diagnosticCenterService:DiagnosticCenterService) { }
+
+  openTestMangement(center:DiagnosticCenter,index){
+      this.diagnosticCenterService.getTestList(center,index).subscribe((value => {
+        // center.testList=value
+        // this.diagnosticCenterService.centers[index]=center
+        const dialogRef = this.dialog.open(MangeTestComponent, {
+          width: '250px',
+          data: {index}
+        });
+      }));
+
+  }
 
 
   updateForm:FormGroup=new FormGroup({
@@ -24,7 +40,7 @@ export class ViewDiagnosticCenterComponent implements OnInit {
     ])
   });
 
-  
+
   deleteCenter(centerId:number){
     this.diagnosticCenterService.deleteCenter(centerId).subscribe((value:any)=>{
       if(value.success){

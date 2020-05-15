@@ -54,7 +54,17 @@ import {DeletetestComponent} from './pages/testmanagement/deletetest/deletetest.
 import {ViewtestComponent} from './pages/testmanagement/viewtest/viewtest.component';
 import {UpdatetestComponent} from './pages/testmanagement/viewtest/updatetest/updatetest.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+<<<<<<< HEAD
 >>>>>>> fb0ccc2b0639b1ea3138e7a3cb16b34d741bb013
+=======
+
+
+import {httpInterceptorProviders} from './interceptors';
+
+import { MangeTestComponent } from './pages/diagnostic-center/mange-test/mange-test.component';
+import { UpdateTestComponent } from './pages/testmanagement/update-test/update-test.component';
+import { UserDetailComponent } from './pages/user-detail/user-detail.component';
+>>>>>>> 7e5f345790911198835c6aaaa6c6a17d039f8021
 // import { UserHomeComponent } from './user-home/user-home.component';
 // import { CancelAppointmentComponent } from './cancel-appointment/cancel-appointment.component';
 
@@ -87,8 +97,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 =======
     RegisterComponent,
     ViewtestComponent,
+<<<<<<< HEAD
     UpdatetestComponent
 >>>>>>> fb0ccc2b0639b1ea3138e7a3cb16b34d741bb013
+=======
+    UpdatetestComponent,
+    MangeTestComponent,
+    UpdateTestComponent,
+    UserDetailComponent
+>>>>>>> 7e5f345790911198835c6aaaa6c6a17d039f8021
   ],
   imports: [
     BrowserModule,
@@ -115,7 +132,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CommonModule,
     FontAwesomeModule
   ],
-  providers: [AppointmenthandlerService],
+  providers: [AppointmenthandlerService,httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule {

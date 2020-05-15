@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
   submitted = false;
+  errors=null;
 
   constructor(
     private fb: FormBuilder,
@@ -59,6 +60,7 @@ export class RegisterComponent implements OnInit {
         this.router.navigateByUrl('/login');
       },
       err => {
+	      this.errors=err;
         this.errorMessage = err.error.message;
         this.isSignUpFailed = true;
       }
