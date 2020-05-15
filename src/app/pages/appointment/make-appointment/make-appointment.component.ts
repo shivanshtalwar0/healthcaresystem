@@ -54,8 +54,9 @@ export class MakeAppointmentComponent implements OnInit {
 onSelect(center:any){
    this.tableStatus=true;
    this.currentCenterName=center.centerName;
+   this.serv.getTestList(center).subscribe((data)=>{ this.test=center.testList;})
    this.centerId=center.id;
-   this.test=center.testList;
+
 
 }
 onTestSelect(test:Test){

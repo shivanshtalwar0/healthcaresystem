@@ -4,11 +4,7 @@
 
 export const environment = {
   production: false,
-<<<<<<< HEAD
-  baseMwUrl:'http://localhost:8888/'
-=======
   baseUrl:'http://localhost:8888/'
->>>>>>> 7e5f345790911198835c6aaaa6c6a17d039f8021
 };
 
 /*http://localhost:8888/appointment-service/appointments/lists

@@ -7,10 +7,12 @@ import { Injectable ,AbstractType } from '@angular/core';
 // import { record } from './record.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { DiagnosticCenter } from '../interfaces/diagnosticenter.model';
 import { record } from '../interfaces/record.model';
 import { TokenStorageService } from './token-storage.service';
+import { TestModel } from '../model/testmodel';
+import { Test } from '../interfaces/test.model';
 // import { DiagnosticCenter } from './diagnosticenter.model';
 
 
@@ -20,26 +22,32 @@ import { TokenStorageService } from './token-storage.service';
 export class AppointmenthandlerService {
   public btnStaus:boolean;
   baseUrl:string;
+  baseUrl2:string;
   recordModel:record;
   public date:string;
   public arrayDetails:record[]=[];
 
     public diagnosticCenter:any[]=[];
-<<<<<<< HEAD
-  constructor(private http:HttpClient,private tokenStorageService:TokenStorageService) {
-    this.baseUrl=`${environment.baseMwUrl}/appointment-service/appointments`;
-=======
   constructor(private http:HttpClient) {
     this.baseUrl=`appointment-service/appointments`;
->>>>>>> 7e5f345790911198835c6aaaa6c6a17d039f8021
+    this.baseUrl2='diagnostic-service/diagnosticCenter'
+
   }
 
+
+  getTestList(center:DiagnosticCenter):Observable<any>{
+    return of(this.http.get<Test[]>(this.baseUrl2+`/${center.id.toString()}/test`).subscribe((val)=>{
+      center.testList=val;
+    }));
+
+ }
+
   getAll():Observable<DiagnosticCenter[]>{
-   return this.http.get<DiagnosticCenter[]>(`${this.baseUrl}/lists`,this.tokenStorageService.httpOption);
+   return this.http.get<DiagnosticCenter[]>(`${this.baseUrl}/lists`);
   }
 
   add(recordModel):Observable<record>{
-    return this.http.post<record>(this.baseUrl,recordModel,this.tokenStorageService.httpOption);
+    return this.http.post<record>(this.baseUrl,recordModel);
   }
 
   setLogDATE(logDate:string){
@@ -49,7 +57,7 @@ export class AppointmenthandlerService {
     return this.date;
   }
   getAppointments():Observable<record[]>{
-    return this.http.get<record[]>(this.baseUrl,this.tokenStorageService.httpOption);
+    return this.http.get<record[]>(this.baseUrl);
   }
 
   onCancel(patientid: number) {
@@ -60,7 +68,7 @@ export class AppointmenthandlerService {
   }
 
   deleteById(id:number):Observable<any>{
-    return this.http.delete(`${this.baseUrl}/${id}`,this.tokenStorageService.httpOption);
+    return this.http.delete(`${this.baseUrl}/${id}`);
   }
 
 }
