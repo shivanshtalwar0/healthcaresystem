@@ -16,8 +16,7 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
 })
 export class MakeAppointmentComponent implements OnInit {
 
-  constructor(public dialog:MatDialog,private serv:AppointmenthandlerService,
-    private tokenStorage:TokenStorageService){}
+  constructor(public dialog:MatDialog,private serv:AppointmenthandlerService){}
   test:Test[];
   status:boolean;
   btnStatus=false;
@@ -55,8 +54,9 @@ export class MakeAppointmentComponent implements OnInit {
 onSelect(center:any){
    this.tableStatus=true;
    this.currentCenterName=center.centerName;
-   this.centerId=center.centerId;
-   this.test=center.testList;
+   this.serv.getTestList(center).subscribe((data)=>{ this.test=center.testList;})
+   this.centerId=center.id;
+
 
 }
 onTestSelect(test:Test){

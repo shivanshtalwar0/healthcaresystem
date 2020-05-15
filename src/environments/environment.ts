@@ -7,7 +7,7 @@ export const environment = {
   baseUrl:'http://localhost:8888/'
 };
 
-/*
+/*http://localhost:8888/appointment-service/appointments/lists
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
  *

@@ -1,9 +1,9 @@
 import { Test } from './test.model';
 
 export class DiagnosticCenter{
-   centerId:any;
+        id:any;
 	 centername:string;
 	 address:string;
-   contactInfo:string;
+   contactNo:string;
    testList:Test[];
 }
