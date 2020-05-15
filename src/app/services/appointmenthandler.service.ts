@@ -35,7 +35,7 @@ export class AppointmenthandlerService {
 
 
   getAll():Observable<DiagnosticCenter[]>{
-   return this.http.get<DiagnosticCenter[]>(`${this.baseUrl}`);
+   return this.http.get<DiagnosticCenter[]>(`${this.baseUrl}/lists`);
   }
 
   add(recordModel):Observable<record>{
