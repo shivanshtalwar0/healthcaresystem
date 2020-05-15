@@ -19,7 +19,7 @@
         <a class="nav-link" [routerLink]="['users']" routerLinkActive="active">Home </a>
       </li>
       <li class="nav-item" *ngIf="isLoggedIn && showAdminBoard">
-        <a class="nav-link" [routerLink]="['admin']" routerLinkActive="active">Admin Board</a>
+        <a class="nav-link" [routerLink]="['admin/dashboard']" routerLinkActive="active">Admin Board</a>
       </li>
       <li class="nav-item" *ngIf="isLoggedIn && showModeratorBoard">
         <a class="nav-link" [routerLink]="['facilitator']" routerLinkActive="active">Facilitator Board</a>
