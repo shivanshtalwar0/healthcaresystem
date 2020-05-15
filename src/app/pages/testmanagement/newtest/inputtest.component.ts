@@ -5,7 +5,7 @@ import {ErrorStateMatcher} from '@angular/material/core';
 import {TestModel} from 'src/app/model/testmodel';
 import {TestService} from 'src/app/services/test.service';
 import {TestAttributes} from 'src/app/model/test-attributes';
-import {faPlusCircle} from '@fortawesome/free-solid-svg-icons';
+// import {faPlusCircle} from '@fortawesome/free-solid-svg-icons';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {

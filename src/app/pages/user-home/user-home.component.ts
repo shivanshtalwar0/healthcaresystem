@@ -14,10 +14,9 @@ export class UserHomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onClickeView(){
+  onClick(){
 
-    this.route.navigate(['users/dashboard/makeappointment']);
-  //   const dialogRef=this.dialog.open(LoginComponent);
+         this.route.navigate(['users/dashboard/makeappointment']);
   //   dialogRef.afterClosed().subscribe(result => {
   //  console.log(result); });
  }

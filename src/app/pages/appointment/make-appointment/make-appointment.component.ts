@@ -16,8 +16,7 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
 })
 export class MakeAppointmentComponent implements OnInit {
 
-  constructor(public dialog:MatDialog,private serv:AppointmenthandlerService,
-    private tokenStorage:TokenStorageService){}
+  constructor(public dialog:MatDialog,private serv:AppointmenthandlerService){}
   test:Test[];
   status:boolean;
   btnStatus=false;

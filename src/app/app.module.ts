@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule, ApplicationModule} from '@angular/core';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -28,6 +27,7 @@ import {ViewAppointmentComponent} from './pages/appointment/view-appointment/vie
 import {MaterialModule} from './material/material.module';
 import {MatSelectModule} from '@angular/material/select';
 // import { AppointmentmessageComponent } from './pages/appointmentmessage/appointmentmessage.component';
+// import { SuccessfulMessageComponent } from './pages/appointment/successful-message/successful-message.component';
 import {AppointmentMessageComponent} from './pages/appointment/appointment-message/appointment-message.component';
 import {AppointmenthandlerService} from './services/appointmenthandler.service';
 import {CancelAppointmentComponent} from './pages/appointment/cancel-appointment/cancel-appointment.component';
@@ -74,6 +74,7 @@ import { SuccessMessageComponent } from './pages/appointment/success-message/suc
     LoginComponent,
     RegisterComponent,
     ViewtestComponent,
+    UpdatetestComponent,
     UpdatetestComponent,
     MangeTestComponent,
     UpdateTestComponent,
