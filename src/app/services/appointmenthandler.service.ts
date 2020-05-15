@@ -7,9 +7,10 @@ import { Injectable ,AbstractType } from '@angular/core';
 // import { record } from './record.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { DiagnosticCenter } from '../interfaces/diagnosticenter.model';
 import { record } from '../interfaces/record.model';
+import { Test } from '../interfaces/test.model';
 // import { DiagnosticCenter } from './diagnosticenter.model';
 
 
@@ -19,6 +20,7 @@ import { record } from '../interfaces/record.model';
 export class AppointmenthandlerService {
   public btnStaus:boolean;
   baseUrl:string;
+  baseUrl2:string;
   recordModel:record;
   public date:string;
   public arrayDetails:record[]=[];
@@ -26,6 +28,7 @@ export class AppointmenthandlerService {
     public diagnosticCenter:any[]=[];
   constructor(private http:HttpClient) {
     this.baseUrl=`appointment-service/appointments`;
+    this.baseUrl2='diagnostic-service/diagnosticCenter'
   }
 
   getAll():Observable<DiagnosticCenter[]>{
@@ -44,6 +47,12 @@ export class AppointmenthandlerService {
   }
   getAppointments():Observable<record[]>{
     return this.http.get<record[]>(this.baseUrl);
+  }
+
+
+  getTestList(center:DiagnosticCenter):Observable<Test[]>{
+    return this.http.get<Test[]>(this.baseUrl2+`/${center.id}/test`);
+
   }
 
   onCancel(patientid: number) {

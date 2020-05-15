@@ -48,6 +48,7 @@ import {httpInterceptorProviders} from './interceptors';
 import { MangeTestComponent } from './pages/diagnostic-center/mange-test/mange-test.component';
 import { UpdateTestComponent } from './pages/testmanagement/update-test/update-test.component';
 import { UserDetailComponent } from './pages/user-detail/user-detail.component';
+import { SuccessMessageComponent } from './pages/appointment/success-message/success-message.component';
 // import { UserHomeComponent } from './user-home/user-home.component';
 // import { CancelAppointmentComponent } from './cancel-appointment/cancel-appointment.component';
 
@@ -76,7 +77,8 @@ import { UserDetailComponent } from './pages/user-detail/user-detail.component';
     UpdatetestComponent,
     MangeTestComponent,
     UpdateTestComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    SuccessMessageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-home',
@@ -9,14 +10,16 @@ import { LoginComponent } from '../login/login.component';
 })
 export class UserHomeComponent implements OnInit {
 
-  constructor(public dialog:MatDialog) { }
+  constructor(public dialog:MatDialog,private route:Router) { }
 
   ngOnInit(): void {
   }
   onClickeView(){
-    const dialogRef=this.dialog.open(LoginComponent);
-    dialogRef.afterClosed().subscribe(result => {
-   console.log(result); });
+
+    this.route.navigate(['users/dashboard/makeappointment']);
+  //   const dialogRef=this.dialog.open(LoginComponent);
+  //   dialogRef.afterClosed().subscribe(result => {
+  //  console.log(result); });
  }
- 
+
 }
