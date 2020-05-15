@@ -13,10 +13,14 @@ export class SuccessfulMessageComponent implements OnInit {
 
   constructor(public serv:AppointmenthandlerService, public dialogRef: MatDialogRef<SuccessfulMessageComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,private router:Router,private active:ActivatedRoute) {
-      this.data=this.serv.getDate();
     }
-
+    onSuccess(){
+      this.router.navigate(['users/dashboard/viewappointment']);
+      this.onNoClick();}
   ngOnInit(): void {
+  }
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
 }

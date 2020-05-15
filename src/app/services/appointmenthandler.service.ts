@@ -10,8 +10,6 @@ import { environment } from 'src/environments/environment';
 import { Observable, of } from 'rxjs';
 import { DiagnosticCenter } from '../interfaces/diagnosticenter.model';
 import { record } from '../interfaces/record.model';
-import { TokenStorageService } from './token-storage.service';
-import { TestModel } from '../model/testmodel';
 import { Test } from '../interfaces/test.model';
 // import { DiagnosticCenter } from './diagnosticenter.model';
 
@@ -31,19 +29,13 @@ export class AppointmenthandlerService {
   constructor(private http:HttpClient) {
     this.baseUrl=`appointment-service/appointments`;
     this.baseUrl2='diagnostic-service/diagnosticCenter'
-
   }
 
 
-  getTestList(center:DiagnosticCenter):Observable<any>{
-    return of(this.http.get<Test[]>(this.baseUrl2+`/${center.id.toString()}/test`).subscribe((val)=>{
-      center.testList=val;
-    }));
 
- }
 
   getAll():Observable<DiagnosticCenter[]>{
-   return this.http.get<DiagnosticCenter[]>(`${this.baseUrl}`);
+   return this.http.get<DiagnosticCenter[]>(`${this.baseUrl}/lists`);
   }
 
   add(recordModel):Observable<record>{
@@ -58,6 +50,12 @@ export class AppointmenthandlerService {
   }
   getAppointments():Observable<record[]>{
     return this.http.get<record[]>(this.baseUrl);
+  }
+
+
+  getTestList(center:DiagnosticCenter):Observable<Test[]>{
+    return this.http.get<Test[]>(this.baseUrl2+`/${center.id}/test`);
+
   }
 
   onCancel(patientid: number) {
