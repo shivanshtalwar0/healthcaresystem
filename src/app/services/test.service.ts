@@ -19,6 +19,8 @@ export class TestService {
   addTest(testModel: TestModel) {
     this.http.post<TestModel>(this.baseUrl + '/add', testModel).subscribe((data) => {
       this.getTestList();
+    },(err)=>{
+      alert("Test already Exist!")
     });
   }
   updateTest(testModel:TestModel){
