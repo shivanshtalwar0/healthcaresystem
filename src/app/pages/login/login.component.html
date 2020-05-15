@@ -23,8 +23,12 @@
 
       <button type="submit" class="btn btn-primary">Login</button>
 
-      <a [routerLink]="['/register']" class="btn btn-link">Register</a>
+      <a [routerLink]="['/users/register']" class="btn btn-link">Register</a>
 
     </form>
+
+	<div class="alert alert-danger" role="alert" *ngIf="submitted && errors">
+  		Bad Credentials
+	</div>
   </div>
 </div>

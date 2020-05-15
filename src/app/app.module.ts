@@ -41,9 +41,13 @@ import {DeletetestComponent} from './pages/testmanagement/deletetest/deletetest.
 import {ViewtestComponent} from './pages/testmanagement/viewtest/viewtest.component';
 import {UpdatetestComponent} from './pages/testmanagement/viewtest/updatetest/updatetest.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
 import {httpInterceptorProviders} from './interceptors';
+
 import { MangeTestComponent } from './pages/diagnostic-center/mange-test/mange-test.component';
 import { UpdateTestComponent } from './pages/testmanagement/update-test/update-test.component';
+import { UserDetailComponent } from './pages/user-detail/user-detail.component';
 // import { UserHomeComponent } from './user-home/user-home.component';
 // import { CancelAppointmentComponent } from './cancel-appointment/cancel-appointment.component';
 
@@ -71,7 +75,8 @@ import { UpdateTestComponent } from './pages/testmanagement/update-test/update-t
     ViewtestComponent,
     UpdatetestComponent,
     MangeTestComponent,
-    UpdateTestComponent
+    UpdateTestComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,

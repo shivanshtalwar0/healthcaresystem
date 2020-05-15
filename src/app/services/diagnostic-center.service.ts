@@ -17,7 +17,6 @@ export class DiagnosticCenterService {
 
   baseUrl='diagnostic-service/diagnosticCenter'
 
-
   centers:DiagnosticCenter[] = [];
 
   updateCenter(centerId: number, center:DiagnosticCenter) {
