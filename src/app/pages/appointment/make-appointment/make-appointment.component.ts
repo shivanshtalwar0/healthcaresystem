@@ -37,8 +37,7 @@ export class MakeAppointmentComponent implements OnInit {
   arrayofDetails:record[];
   arrayDetails:DiagnosticCenter[];
   arrayDetails1:any=new Map();
-  // name:string;
-  newArray:any[];
+  contactNo:any;
   centerList:DiagnosticCenter;
   diagnosticCenter=this.serv.diagnosticCenter;
 
@@ -53,8 +52,11 @@ export class MakeAppointmentComponent implements OnInit {
 
 onSelect(center:any){
    this.tableStatus=true;
+   this.contactNo=center.contactNo;
    this.currentCenterName=center.centerName;
-   this.serv.getTestList(center).subscribe((data)=>{ this.test=center.testList;})
+   this.serv.getTestList(center).subscribe((data)=>{
+    this.test=data;
+   })
    this.centerId=center.id;
 
 
@@ -66,7 +68,9 @@ onTestSelect(test:Test){
     this.btnStatus=true;
 }
 openDialog1(){
-  const  dialogRef=this.dialog.open(AppointmentMessageComponent,{height:'400px',width:'600px',data: {}});
+  const  dialogRef=this.dialog.open(AppointmentMessageComponent,{height:'400px',width:'600px',data: {
+    centerName:this.currentCenterName,contactInfo:this.contactNo
+  }});
 
 dialogRef.afterClosed().subscribe(result => {
 
