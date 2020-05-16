@@ -1,0 +1,10 @@
+<div class="card card text-white bg-dark mb-3 text-center">
+  <div class="card-body">
+    <h3 class="card-title text-success">Your Appointment is Confirmed!!!!</h3>
+    <h3 class="card-title text-white">Appointment_Information:</h3>
+    <h3 class="card-title text-white">Center_Name:{{data.cName}}</h3>
+    <h3 class="card-title text-white">Center_Contact_No:{{data.cInfo}}</h3>
+    <h3 class="card-title text-white">Appointment_Date:{{data.data}}</h3>
+    <button class="btn btn-outline-primary"  (click)="onSuccess()" mat-dialog-close>OK</button>
+  </div>
+</div>
