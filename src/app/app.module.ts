@@ -80,7 +80,7 @@ import { DownloadButtonComponent } from './pages/download-button/download-button
     UpdatetestComponent,
     MangeTestComponent,
     UpdateTestComponent,
-    UserDetailComponent
+    UserDetailComponent,DownloadButtonComponent,
   ],
   imports: [
     BrowserModule,
