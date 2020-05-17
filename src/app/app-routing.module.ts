@@ -23,8 +23,8 @@ const routes: Routes = [
   {path:'users',component:UserHomeComponent},
   { path:'users/dashboard', canActivate:[AuthGuard],canActivateChild:[AuthGuard],
       component: AppointmentComponent, children: [
-      {path: 'makeappointment', component: MakeAppointmentComponent},
-      {path: 'viewappointment', component: ViewAppointmentComponent},
+      {path: 'makeappointment', component: MakeAppointmentComponent,data:{animation:'isRight'}},
+      {path: 'viewappointment', component: ViewAppointmentComponent,data:{animation:'isLeft'}},
     ]
   },
   {

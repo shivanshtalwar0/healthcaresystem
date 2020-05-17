@@ -12,43 +12,44 @@ import {SubjectSubscription} from 'rxjs/internal-compatibility';
 })
 export class DiagnosticCenterService {
 
-  constructor(private http: HttpClient,private tokenStorageService:TokenStorageService) {
+  constructor(private http: HttpClient, private tokenStorageService: TokenStorageService) {
   }
 
-  baseUrl='diagnostic-service/diagnosticCenter'
+  baseUrl = 'diagnostic-service/diagnosticCenter';
 
-  centers:DiagnosticCenter[] = [];
+  centers: DiagnosticCenter[] = [];
 
-  updateCenter(centerId: number, center:DiagnosticCenter) {
-    return this.http.put(this.baseUrl+'/'+centerId, center, this.tokenStorageService.httpOption)
+  updateCenter(centerId: number, center: DiagnosticCenter) {
+    return this.http.put(this.baseUrl + '/' + centerId, center, this.tokenStorageService.httpOption);
   }
 
   getCenter() {
-    this.http.get(this.baseUrl).subscribe((value:any) => {
-       this.centers=value.map((val)=>({centerId:val.id,centerName:val.centerName,
-         address:val.address,
-         contactNo:val.contactNo,
-         shouldUpdate:false}))
-  });
+    this.http.get(this.baseUrl).subscribe((value: any) => {
+      this.centers = value.map((val) => (new DiagnosticCenter(val.id, val.centerName,
+        val.address,
+        val.contactNo,
+        false, [])));
+    });
   }
 
-  getTestList(center:DiagnosticCenter,index):Observable<any>{
-     return of(this.http.get<TestModel[]>(this.baseUrl+`/${center.centerId.toString()}/test`).subscribe((val)=>{
-       center.testList=val
-       this.centers[index]=center
-     }));
+  getTestList(center: DiagnosticCenter, index): Observable<any> {
+    return of(this.http.get<TestModel[]>(this.baseUrl + `/${center.centerId.toString()}/test`).subscribe((val) => {
+      center.testList = val;
+      this.centers[index] = center;
+    }));
 
   }
-  addTestToCenter(centerId:number,testId:number):Observable<any>{
-    return this.http.post(this.baseUrl+`/${centerId}/test/${testId}`,{})
+
+  addTestToCenter(centerId: number, testId: number): Observable<any> {
+    return this.http.post(this.baseUrl + `/${centerId}/test/${testId}`, {});
   }
 
   addCenter(data) {
-    return this.http.post(this.baseUrl, data)
+    return this.http.post(this.baseUrl, data);
   }
 
   deleteCenter(centerId: number) {
-    return this.http.delete(this.baseUrl+"/"+centerId)
+    return this.http.delete(this.baseUrl + '/' + centerId);
   }
 
 }

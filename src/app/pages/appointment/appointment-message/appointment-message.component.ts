@@ -19,17 +19,24 @@ export class AppointmentMessageComponent implements OnInit {
    bValue=false;
    selectedDate:any;
    date:any;
+   centerName:string;
+   contactNo:any;
    constructor(public serv:AppointmenthandlerService, public dialogRef: MatDialogRef<AppointmentMessageComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,private router:Router,private active:ActivatedRoute,public dialog:MatDialog) { }
+    @Inject(MAT_DIALOG_DATA) public data: any,private router:Router,private active:ActivatedRoute,public dialog:MatDialog) {
+      this.contactNo=data.contactInfo;
+      this.centerName=data.centerName;
+     }
 
   value(data:any){
     this.serv.setLogDATE(data);
-    const  dialogRef=this.dialog.open(SuccessfulMessageComponent,{width:'450px',data: {}});
+    const  dialogRef=this.dialog.open(SuccessfulMessageComponent,{width:'450px',data: {data,
+      cName:this.centerName,cInfo:this.contactNo}});
     dialogRef.afterClosed().subscribe(result=>{console.log(result)});
     this.onNoClick();
     this.bValue=true;
     this.serv.btnStaus=this.bValue;
-    this.router.navigate(["../dashboard/viewappointment"],{relativeTo:this.active});
+    this.router.navigate(["users","dashboard","viewappointment"],{relativeTo:this.active});
+
    }
   // selectedSlot="";
 
