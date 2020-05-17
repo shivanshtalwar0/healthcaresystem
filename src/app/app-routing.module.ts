@@ -12,6 +12,7 @@ import { DiagnosticCenterComponent } from './pages/diagnostic-center/diagnostic-
 import { AddDiagnosticCenterComponent } from './pages/diagnostic-center/add-diagnostic-center/add-diagnostic-center.component';
 import { ViewDiagnosticCenterComponent } from './pages/diagnostic-center/view-diagnostic-center/view-diagnostic-center.component';
 import {AdminauthGuard} from './guards/adminauth.guard';
+import { DownloadButtonComponent } from './pages/download-button/download-button.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,8 @@ const routes: Routes = [
     path: '',
     component: UserHomeComponent
   },
+  { path:'topdf',
+  component:DownloadButtonComponent},
 
   {path:'users',component:UserHomeComponent},
   { path:'users/dashboard', canActivate:[AuthGuard],canActivateChild:[AuthGuard],

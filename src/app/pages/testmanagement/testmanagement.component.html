@@ -4,6 +4,7 @@
     <div class="flex-shrink-1 d-flex justify-content-start col-12">
       <button  mat-raised-button color="primary" (click)="goToAdd()">Add a Test</button>
     </div>
+    <div><button [routerLink]="['/topdf']" mat-menu-item> PDF Download</button></div>
     <div class="col-12">
       <app-viewtest></app-viewtest>
     </div>

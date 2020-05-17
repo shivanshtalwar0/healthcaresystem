@@ -48,6 +48,7 @@ import {httpInterceptorProviders} from './interceptors';
 import { MangeTestComponent } from './pages/diagnostic-center/mange-test/mange-test.component';
 import { UpdateTestComponent } from './pages/testmanagement/update-test/update-test.component';
 import { UserDetailComponent } from './pages/user-detail/user-detail.component';
+import { DownloadButtonComponent } from './pages/download-button/download-button.component';
 
 // import { UserHomeComponent } from './user-home/user-home.component';
 // import { CancelAppointmentComponent } from './cancel-appointment/cancel-appointment.component';
