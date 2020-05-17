@@ -28,19 +28,14 @@ import {ViewAppointmentComponent} from './pages/appointment/view-appointment/vie
 import {MaterialModule} from './material/material.module';
 import {MatSelectModule} from '@angular/material/select';
 // import { AppointmentmessageComponent } from './pages/appointmentmessage/appointmentmessage.component';
-<<<<<<< HEAD
-import { AppointmentMessageComponent } from './pages/appointment/appointment-message/appointment-message.component';
-import { AppointmenthandlerService } from './services/appointmenthandler.service';
-import { CancelAppointmentComponent } from './pages/appointment/cancel-appointment/cancel-appointment.component';
-import { UserHomeComponent } from './pages/user-home/user-home.component';
-import { LoginComponent } from './pages/login/login.component';
-<<<<<<< HEAD
-import { SuccessfulMessageComponent } from './pages/appointment/successful-message/successful-message.component';
-=======
-import { CommonModule } from '@angular/common';
-import { RegisterComponent } from './pages/register/register.component';
->>>>>>> 39c593c94da966186756d3ec7734fe4339e2ccd6
-=======
+
+// import { AppointmentMessageComponent } from './pages/appointment/appointment-message/appointment-message.component';
+// import { AppointmenthandlerService } from './services/appointmenthandler.service';
+// import { CancelAppointmentComponent } from './pages/appointment/cancel-appointment/cancel-appointment.component';
+// import { UserHomeComponent } from './pages/user-home/user-home.component';
+// import { LoginComponent } from './pages/login/login.component';
+// import { CommonModule } from '@angular/common';
+// import { RegisterComponent } from './pages/register/register.component';
 import {AppointmentMessageComponent} from './pages/appointment/appointment-message/appointment-message.component';
 import {AppointmenthandlerService} from './services/appointmenthandler.service';
 import {CancelAppointmentComponent} from './pages/appointment/cancel-appointment/cancel-appointment.component';
@@ -54,9 +49,7 @@ import {DeletetestComponent} from './pages/testmanagement/deletetest/deletetest.
 import {ViewtestComponent} from './pages/testmanagement/viewtest/viewtest.component';
 import {UpdatetestComponent} from './pages/testmanagement/viewtest/updatetest/updatetest.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-<<<<<<< HEAD
->>>>>>> fb0ccc2b0639b1ea3138e7a3cb16b34d741bb013
-=======
+
 
 
 import {httpInterceptorProviders} from './interceptors';
@@ -64,7 +57,8 @@ import {httpInterceptorProviders} from './interceptors';
 import { MangeTestComponent } from './pages/diagnostic-center/mange-test/mange-test.component';
 import { UpdateTestComponent } from './pages/testmanagement/update-test/update-test.component';
 import { UserDetailComponent } from './pages/user-detail/user-detail.component';
->>>>>>> 7e5f345790911198835c6aaaa6c6a17d039f8021
+import { SuccessfulMessageComponent } from './pages/appointment/successful-message/successful-message.component';
+
 // import { UserHomeComponent } from './user-home/user-home.component';
 // import { CancelAppointmentComponent } from './cancel-appointment/cancel-appointment.component';
 
@@ -88,24 +82,13 @@ import { UserDetailComponent } from './pages/user-detail/user-detail.component';
     DeletetestComponent,
     UserHomeComponent,
     LoginComponent,
-<<<<<<< HEAD
-<<<<<<< HEAD
-    SuccessfulMessageComponent
-=======
-    RegisterComponent
->>>>>>> 39c593c94da966186756d3ec7734fe4339e2ccd6
-=======
+    SuccessfulMessageComponent,
     RegisterComponent,
     ViewtestComponent,
-<<<<<<< HEAD
-    UpdatetestComponent
->>>>>>> fb0ccc2b0639b1ea3138e7a3cb16b34d741bb013
-=======
     UpdatetestComponent,
     MangeTestComponent,
     UpdateTestComponent,
     UserDetailComponent
->>>>>>> 7e5f345790911198835c6aaaa6c6a17d039f8021
   ],
   imports: [
     BrowserModule,
