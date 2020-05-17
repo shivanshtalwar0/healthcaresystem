@@ -17,7 +17,8 @@
 
       <td>{{record.testName}}</td>
       <td>{{record.centername}}</td>
-      <td><button mat-raised-button class="btn btn-success btn-sm">Download</button></td>
+    <div><td>><button mat-raised-button class="btn btn-success btn-sm" [routerLink]="['/topdf']" mat-menu-item> PDF Download</button></td></div>
+
       <td><button mat-raised-button color="warn" (click)="onCancelRecord(record.patientid)">Cancel</button></td>
     </tr>
   </tbody>
