@@ -69,10 +69,13 @@
 
         </div>
 
-	<div class="alert alert-danger" role="alert" *ngIf="submitted && errors">
-  		Email Already In Use
-	</div>
+        <div class="alert alert-warning" *ngIf="submitted && isSignUpFailed">
+          Signup failed!<br />{{ errorMessage }}
+        </div>
       </form>
+      <div class="alert alert-success" *ngIf="isSuccessful">
+        Your registration is successful!
+      </div>
     </div>
   </div>
 </div>

@@ -8,11 +8,15 @@ import { AppointmentMessageComponent } from '../appointment-message/appointment-
 import { DiagnosticCenter } from 'src/app/interfaces/diagnosticenter.model';
 import { Test } from 'src/app/interfaces/test.model';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { fader } from 'src/app/route-animations';
 
 @Component({
   selector: 'app-make-appointment',
   templateUrl: './make-appointment.component.html',
-  styleUrls: ['./make-appointment.component.css']
+  styleUrls: ['./make-appointment.component.css'],
+  animations:[
+    fader
+  ]
 })
 export class MakeAppointmentComponent implements OnInit {
 
