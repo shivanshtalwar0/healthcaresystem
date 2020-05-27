@@ -45,11 +45,8 @@ export class UpdateTestComponent implements OnInit {
 
   updateTest() {
     let testAttributes:TestAttributes[]=[]
-    Object.keys(this.updateTestForm.controls).forEach((key,index)=>{
-      if(index!=0){
-        testAttributes.push(new TestAttributes(this.updateTestForm.value[key],null))
-      }
-
+    Object.keys(this.updateTestForm.controls).forEach((key)=>{
+      testAttributes.push(new TestAttributes(this.updateTestForm.value[key],null))
     })
     let testModel:TestModel=new TestModel(this.data.testModel.testId,this.updateTestForm.value.testName,testAttributes,false)
     this.testService.updateTest(testModel)

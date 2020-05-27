@@ -1,14 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
-import{fader} from 'src/app/route-animations';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-appointment',
   templateUrl: './appointment.component.html',
-  styleUrls: ['./appointment.component.css'],
-  animations:[
-    fader
-  ]
+  styleUrls: ['./appointment.component.css']
 })
 export class AppointmentComponent implements OnInit {
   navLinks: any[];
@@ -35,7 +31,5 @@ ngOnInit(): void {
       this.activeLinkIndex = this.navLinks.indexOf(this.navLinks.find(tab => tab.link === '.' + this.router.url));
   });
 }
-prepareRoute(outlet:RouterOutlet){
-  return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
-}
+
 }

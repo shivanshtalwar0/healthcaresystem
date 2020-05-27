@@ -15,11 +15,13 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   submitted = false;
+  loading = false;
+  returnUrl: string;
   form: any = {};
   errorMessage = '';
   roles: string[] = [];	
-  isLoggedIn = false;
-  isLoginFailed = false;
+  errors=null;
+
 
   constructor(
     private fb: FormBuilder,
@@ -51,13 +53,11 @@ export class LoginComponent implements OnInit {
         this.tokenStorage.saveToken(data.token);
         this.tokenStorage.saveRoles(data.authorityList);
         this.tokenStorage.setAuthenticated();
-        this.isLoginFailed = false;
-        this.isLoggedIn = true;
         this.redirectTo();
       },
         err => {
+	        this.errors=err;
           this.errorMessage = err.error.message;
-          this.isLoginFailed = true;
         }
       );
   }

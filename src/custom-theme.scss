@@ -26,7 +26,3 @@ $HealthCareSystem-theme: mat-light-theme($HealthCareSystem-primary, $HealthCareS
 // that you are using.
 @include angular-material-theme($HealthCareSystem-theme);
 
-main{
-  text-align: center;
-  position: relative;
-}
